@@ -107,29 +107,29 @@
             <h2 class="section-title">Features</h2>
             <div class="features-grid">
                 <div class="feature-card border-purple f-purple">
-                    <div class="icon"><i class="fas fa-stethoscope"></i></div>
-                    <h4>Streamlined Patient Management</h4>
+                    <div class="icon"><img src="images/stethoscope.svg" alt="Stethoscope"></div>
+                    <div>Streamlined Patient Management</div>
                     <p>Access patient records, history, and appointments in one organized dashboard.</p>
                 </div>
                 <div class="feature-card border-pink f-pink">
-                    <div class="icon"><i class="far fa-calendar-check"></i></div>
-                    <h4>Smart Appointment Scheduling</h4>
+                    <div class="icon"><img src="images/calendar.svg" alt="Calendar"></div>
+                    <div>Smart Appointment Scheduling</div>
                     <p>Schedule, track, and manage patient appointments with ease and clarity.</p>
                 </div>
                 <div class="feature-card border-yellow f-yellow">
-                    <div class="icon"><i class="far fa-clock"></i></div> <!-- clock for Todo/Time -->
-                    <h4>To do List</h4>
+                    <div class="icon"><img src="images/clock.svg" alt="Clock"></div> <!-- clock for Todo/Time -->
+                    <div>To do List</div>
                     <p>Organize daily tasks, follow-ups, and reminders to stay on top of your practice.</p>
                 </div>
                 <div class="feature-card border-green f-green">
-                    <div class="icon"><i class="fas fa-chart-bar"></i></div>
-                    <h4>Organized Dashboard</h4>
+                    <div class="icon"><img src="images/chart-line.svg" alt="Dashboard"></div>
+                    <div>Organized Dashboard</div>
                     <p>Get a clear overview of your day, patients, and tasks-all from one smart dashboard.</p>
                 </div>
                 <div class="feature-card border-blue f-blue coming-soon-card">
                     <div class="ribbon"><span>Coming Soon</span></div>
-                    <div class="icon"><i class="fas fa-brain"></i></div>
-                    <h4>Billing & Inventory</h4>
+                    <div class="icon"><img src="images/brain.svg" alt="Brain"></div>
+                    <div>Billing & Inventory</div>
                     <p>Handle invoices and payments effortlessly, with inventory management features launching</p>
                 </div>
             </div>
@@ -177,21 +177,27 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <h2 class="section-title">What Our Customer Say?</h2>
-            <p class="section-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit. Donec pulvinar purus at.</p>
             <div class="testimonial-content">
                 <div class="avatars">
                     <!-- Placeholder avatars -->
-                    <img src="https://i.pravatar.cc/50?img=1" alt="User">
-                    <img src="https://i.pravatar.cc/50?img=2" alt="User">
-                    <img src="https://i.pravatar.cc/60?img=3" class="active" alt="User"> <!-- Active center -->
-                    <img src="https://i.pravatar.cc/50?img=4" alt="User">
-                    <img src="https://i.pravatar.cc/50?img=5" alt="User">
+                    <img src="https://i.pravatar.cc/50?img=1" alt="User" class="nav-avatar">
+                    <img src="https://i.pravatar.cc/50?img=2" alt="User" class="nav-avatar">
+                    <img src="https://i.pravatar.cc/50?img=6" alt="User" class="nav-avatar">
+                    <img src="https://i.pravatar.cc/80?img=3" class="active" alt="User"> <!-- Active center -->
+                    <img src="https://i.pravatar.cc/50?img=7" alt="User" class="nav-avatar">
+                    <img src="https://i.pravatar.cc/50?img=4" alt="User" class="nav-avatar">
+                    <img src="https://i.pravatar.cc/50?img=5" alt="User" class="nav-avatar">
                 </div>
-                <div class="testimonial-card">
-                    <h4>John Doe</h4>
-                    <span class="role">Patient</span>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel
-                        scelerisque nisl consectetur et."</p>
+                <div class="testimonial-card-wrapper">
+                    <button class="nav-btn prev"><i class="fas fa-arrow-left"></i></button>
+                    <div class="testimonial-card">
+                        <h4>Bakir Naim</h4>
+                        <span class="role">Speech Doctor</span>
+                        <p>Corem ipsum dolor sit amet, consectetur adipiscing elit. Corem ipsum dolor sit amet,
+                            consectetur
+                            adipiscing elit. Corem ipsum dolor sit amet, consectetur.</p>
+                    </div>
+                    <button class="nav-btn next"><i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -203,37 +209,44 @@
             <h2 class="section-title">Pricing</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Basic Plan</h3>
-                    <div class="price">$20<span>/mo</span></div>
+                    <h3>Solo Plan</h3>
+                    <div class="price">$25 <span>USD</span></div>
+                    <p class="card-desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Lorem ipsum dolor</li>
-                        <li><i class="fas fa-check"></i> Sit amet consectetur</li>
-                        <li><i class="fas fa-check"></i> Adipiscing elit</li>
+                        <li><i class="fas fa-check-circle"></i> Patient Management</li>
+                        <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
+                        <li><i class="fas fa-check-circle"></i> Todo List</li>
+                        <li><i class="fas fa-check-circle"></i> Organized Dashboard</li>
                     </ul>
-                    <button class="btn btn-outline">Get Started</button>
-                </div>
-                <div class="pricing-card popular">
-                    <h3>Standard Plan</h3>
-                    <div class="price">$50<span>/mo</span></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Lorem ipsum dolor</li>
-                        <li><i class="fas fa-check"></i> Sit amet consectetur</li>
-                        <li><i class="fas fa-check"></i> Adipiscing elit</li>
-                        <li><i class="fas fa-check"></i> Sed do eiusmod</li>
-                    </ul>
-                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-primary btn-block">Get Started</button>
                 </div>
                 <div class="pricing-card">
-                    <h3>Premium Plan</h3>
-                    <div class="price">$99<span>/mo</span></div>
+                    <h3>Professional Plan</h3>
+                    <div class="price">$50 <span>USD</span></div>
+                    <p class="card-desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Lorem ipsum dolor</li>
-                        <li><i class="fas fa-check"></i> Sit amet consectetur</li>
-                        <li><i class="fas fa-check"></i> Adipiscing elit</li>
-                        <li><i class="fas fa-check"></i> Sed do eiusmod</li>
-                        <li><i class="fas fa-check"></i> Tempor incididunt</li>
+                        <li><i class="fas fa-check-circle"></i> Patient Management</li>
+                        <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
+                        <li><i class="fas fa-check-circle"></i> Todo List</li>
+                        <li><i class="fas fa-check-circle"></i> Organized Dashboard</li>
+                        <li><i class="fas fa-check-circle"></i> Secretary User</li>
+                        <li><i class="fas fa-check-circle"></i> Billing & Inventory</li>
                     </ul>
-                    <button class="btn btn-outline">Get Started</button>
+                    <button class="btn btn-primary btn-block">Get Started</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Clinical Plan</h3>
+                    <div class="price">$85 <span>USD</span></div>
+                    <p class="card-desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Patient Management</li>
+                        <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
+                        <li><i class="fas fa-check-circle"></i> Todo List</li>
+                        <li><i class="fas fa-check-circle"></i> Organized Dashboard</li>
+                        <li><i class="fas fa-check-circle"></i> 5 Doctor's Accounts</li>
+                        <li><i class="fas fa-check-circle"></i> Billing & Inventory</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block">Get Started</button>
                 </div>
             </div>
         </div>
@@ -262,66 +275,76 @@
     </section>
 
     <!-- Contact Us -->
+    <!-- Contact Us -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <div class="contact-form-container">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h5>Location</h5>
-                            <p>123 Street, City, Country</p>
+            <div class="contact-wrapper">
+                <div class="contact-text">
+                    <h3>Get in Touch</h3>
+                    <p class="contact-desc">Corem ipsum dolor sit amet, consectetur adipiscing elit. Corem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Corem ipsum dolor sit amet, consectetur</p>
+
+                    <div class="contact-details">
+                        <div class="info-item">
+                            <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Beirut, Chiyah</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h5>Email Us</h5>
-                            <p>info@patienthub.com</p>
+                        <div class="info-item">
+                            <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h5>Email Us</h5>
+                                <p>support@gmail.com</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h5>Call Us</h5>
-                            <p>+1 234 567 890</p>
+                        <div class="info-item">
+                            <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h5>Call Us</h5>
+                                <p>+961-1121212</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" placeholder="Your Name">
+
+                <div class="contact-form-card">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" placeholder="Hanin Abbas">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" placeholder="Hanin@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" placeholder="+961-121212">
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" placeholder="company name (optional)">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="email@example.com">
+                            <label>Description *</label>
+                            <textarea rows="4" placeholder="Description here..."></textarea>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="tel" placeholder="+1 234 567 8900">
+                        <div class="form-action">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
                         </div>
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select>
-                                <option>General Inquiry</option>
-                                <option>Support</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea rows="4" placeholder="How can we help you?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer>
