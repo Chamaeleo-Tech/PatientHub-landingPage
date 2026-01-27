@@ -245,10 +245,31 @@ header {
 .desktop-nav a {
     font-weight: 500;
     color: var(--text-dark);
+    position: relative;
+    padding-bottom: 2px;
+    transition: 0.3s;
 }
 
-.desktop-nav a:hover {
-    color: var(--primary-color);
+.desktop-nav a:hover,
+.desktop-nav a.active {
+    font-weight: 700;
+}
+
+/* Underline effect */
+.desktop-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
+    width: 100%;
 }
 
 .header-buttons {
@@ -449,22 +470,28 @@ header {
     right: 0;
     top: 20%;
     height: 60%;
-    /* Divider height relative to container */
     width: 1px;
     background-color: rgba(255, 255, 255, 0.3);
-    /* Subtle white divider */
 }
 
-.stat-item h2 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+.stat-item div {
+    font-size: 48px;
+    font-weight: 800;
+    font-family: 'Manrope', sans-serif;
+    padding: 0;
+    margin-bottom: -5px;
+    /* Pull text closer */
+    line-height: 1;
 }
 
 .stat-item p {
-    font-size: 1rem;
+    font-size: 16px;
     opacity: 0.9;
+    font-weight: 600;
+    font-family: 'Urbanist', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: 0;
 }
 
 /* Mission & Vision */

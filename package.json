@@ -1,0 +1,25 @@
+{
+  "name": "patienthub-landingpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files 'index.html, style.css, script.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/Chamaeleo-Tech/PatientHub-landingPage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Chamaeleo-Tech/PatientHub-landingPage/issues"
+  },
+  "homepage": "https://github.com/Chamaeleo-Tech/PatientHub-landingPage#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}

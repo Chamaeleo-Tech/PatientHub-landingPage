@@ -3,6 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
     const mobileNav = document.querySelector('.mobile-nav');
 
+    // Active Link Highlighting (Desktop)
+    const desktopLinks = document.querySelectorAll('.desktop-nav a');
+    desktopLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Remove active class from all links
+            desktopLinks.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
+            this.classList.add('active');
+        });
+    });
+
     if (mobileMenuIcon && mobileNav) {
         mobileMenuIcon.addEventListener('click', () => {
             mobileNav.classList.toggle('active');
