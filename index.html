@@ -22,7 +22,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="images/patientHub-logo.svg" alt="PatientHub Logo">
+                <img src="images/PatientHub-icon.svg" alt="PatientHub Logo">
             </div>
             <nav class="desktop-nav">
                 <a href="#about-us">About Us</a>
@@ -57,7 +57,16 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="heartbeat-background"></div>
+        <div class="heartbeat-background">
+            <div class="hb-track">
+                <div class="hb-slice"></div>
+                <div class="hb-slice flipped"></div>
+                <div class="hb-slice"></div>
+                <div class="hb-slice flipped"></div>
+                <div class="hb-slice"></div>
+                <div class="hb-slice flipped"></div>
+            </div>
+        </div>
         <div class="container hero-content">
             <h1 class="hero-title">Find Your Doctor & Make An Appointment</h1>
             <p>Designed to support your health. This system helps you find doctors, manage appointments, and take charge
@@ -211,7 +220,7 @@
                 <div class="pricing-card">
                     <h3>Solo Plan</h3>
                     <div class="price">$25 <span>USD</span></div>
-                    <p class="card-desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <p class="card-desc">Only one doctor without secretary with unlimited patients</p>
                     <ul>
                         <li><i class="fas fa-check-circle"></i> Patient Management</li>
                         <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
@@ -223,7 +232,8 @@
                 <div class="pricing-card">
                     <h3>Professional Plan</h3>
                     <div class="price">$50 <span>USD</span></div>
-                    <p class="card-desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <p class="card-desc">One doctor with secretary with unlimited patients and inventory management with
+                        billing features</p>
                     <ul>
                         <li><i class="fas fa-check-circle"></i> Patient Management</li>
                         <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
@@ -237,7 +247,8 @@
                 <div class="pricing-card">
                     <h3>Clinical Plan</h3>
                     <div class="price">$85 <span>USD</span></div>
-                    <p class="card-desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <p class="card-desc">Two doctors with secretaries with unlimited patients and inventory management
+                        with billing features, for each additional doctor add $15</p>
                     <ul>
                         <li><i class="fas fa-check-circle"></i> Patient Management</li>
                         <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
@@ -258,18 +269,47 @@
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <div class="faq-question">What is the platform used for? <i class="fas fa-plus"></i></div>
+                    <div class="faq-question">What is this platform used for? <i class="fas fa-plus"></i></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Who is the system designed for? <i class="fas fa-plus"></i></div>
+                    <div class="faq-question">Who is this system designed for? <i class="fas fa-plus"></i></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Is my data secure? <i class="fas fa-plus"></i></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Can I manage multiple records involved? <i class="fas fa-plus"></i></div>
+                    <div class="faq-question">Can I manage all patient records in one place? <i class="fas fa-plus"></i>
+                    </div>
                 </div>
-                <!-- Add more items as needed -->
+                <div class="faq-item">
+                    <div class="faq-question">How does appointment scheduling work? <i class="fas fa-plus"></i></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can patients submit forms before their visit? <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How does the to-do list help daily practice management? <i
+                            class="fas fa-plus"></i></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I set reminders or follow-up tasks? <i class="fas fa-plus"></i></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Does the platform support billing and invoicing? <i
+                            class="fas fa-plus"></i></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I access the platform from any device? <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is training or onboarding provided? <i class="fas fa-plus"></i></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can this system be customized for my clinic? <i class="fas fa-plus"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -311,30 +351,34 @@
                 </div>
 
                 <div class="contact-form-card">
-                    <form class="contact-form">
+                    <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Full Name *</label>
-                                <input type="text" placeholder="Hanin Abbas">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" placeholder="Hanin Abbas">
+                                <span class="error-msg">This field is required</span>
                             </div>
                             <div class="form-group">
-                                <label>Email Address *</label>
-                                <input type="email" placeholder="Hanin@gmail.com">
+                                <label>Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" placeholder="Hanin@gmail.com">
+                                <span class="error-msg">This field is required</span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Phone Number *</label>
-                                <input type="tel" placeholder="+961-121212">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" placeholder="+961-121212">
+                                <span class="error-msg">This field is required</span>
                             </div>
                             <div class="form-group">
                                 <label>Company</label>
-                                <input type="text" placeholder="company name (optional)">
+                                <input type="text" id="company" placeholder="company name (optional)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Description *</label>
-                            <textarea rows="4" placeholder="Description here..."></textarea>
+                            <label>Description <span class="required">*</span></label>
+                            <textarea rows="4" id="description" placeholder="Description here..."></textarea>
+                            <span class="error-msg">This field is required</span>
                         </div>
                         <div class="form-action">
                             <button type="submit" class="btn btn-primary">Send Message</button>
@@ -351,46 +395,42 @@
         <div class="container footer-container">
             <div class="footer-col">
                 <div class="logo">
-                    <i class="fas fa-stethoscope"></i> PatientHub
+                    <img src="images/PatientHub-icon.svg" alt="PatientHub Logo"
+                        style="height: 40px; width: auto; margin-right: 10px;">
+                    <span style="color: #203C88; font-weight: 700; font-size: 16px;">Patient Hub</span>
                 </div>
                 <p>Making healthcare accessible and efficient for everyone.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
             </div>
             <div class="footer-col">
                 <h4>Links</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Doctors</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">FAQs</a></li>
-                </ul>
+                <h4>Follow us</h4>
+                <div class="social-icons vertical">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Subscribe</h4>
-                <p>Get latest updates and news.</p>
-                <form class="subscribe-form">
-                    <input type="email" placeholder="Your email">
-                    <button><i class="fas fa-paper-plane"></i></button>
-                </form>
+            <div class="footer-col footer-action">
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
         </div>
         <div class="copyright">
-            <p>Terms & Conditions | Privacy Policy | Cookies | Contact</p>
-            <p>Copyright @ 2024. All Rights Reserved</p>
+            <div class="legal-links">
+                <a href="#">Terms&Condition</a>
+                <a href="#">Privacy & Policy</a>
+                <a href="#">Cookies</a>
+                <a href="#">License</a>
+            </div>
+            <p>Copyright @ 2025 All Rights Reserved</p>
         </div>
     </footer>
 
