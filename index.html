@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PatientHub - Find Your Doctor</title>
+    <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -33,7 +34,7 @@
                 <a href="#faq">FAQ</a>
             </nav>
             <div class="header-buttons">
-                <a href="#" class="btn btn-outline">Login</a>
+                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
                 <a href="#" class="btn btn-primary">Contact Us</a>
             </div>
             <div class="mobile-menu-icon">
@@ -49,7 +50,7 @@
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <div class="mobile-buttons">
-                <a href="#" class="btn btn-outline">Login</a>
+                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
                 <a href="#" class="btn btn-primary">Contact Us</a>
             </div>
         </div>
@@ -78,35 +79,15 @@
 
     <!-- Stats Section -->
     <div class="stats-bar">
-        <div class="container stats-container">
-            <div class="stat-item">
-                <div>10+</div>
-                <p>Doctors</p>
-            </div>
-            <div class="stat-item">
-                <div>10+</div>
-                <p>Specialities</p>
-            </div>
-            <div class="stat-item">
-                <div>10+</div>
-                <p>Clinics</p>
-            </div>
+        <div class="container stats-container" id="stats-container">
+            <!-- Dynamic Content -->
         </div>
     </div>
 
     <!-- Mission & Vision -->
     <section class="mission-vision" id="about-us">
-        <div class="container mv-container">
-            <div class="mv-card">
-                <h3>Mission</h3>
-                <p>To amplify healthcare workforce by helping doctors manage patients, appointments and tasks virtually
-                    so they can focus on what matters most: patient care.</p>
-            </div>
-            <div class="mv-card">
-                <h3>Vision</h3>
-                <p>To empower medical professionals with smart, intuitive tools that make healthcare management more
-                    organized, connected, and human.</p>
-            </div>
+        <div class="container mv-container" id="mv-container">
+            <!-- Dynamic Content -->
         </div>
     </section>
 
@@ -114,33 +95,8 @@
     <section class="features" id="features">
         <div class="container">
             <h2 class="section-title">Features</h2>
-            <div class="features-grid">
-                <div class="feature-card border-purple f-purple">
-                    <div class="icon"><img src="images/stethoscope.svg" alt="Stethoscope"></div>
-                    <div>Streamlined Patient Management</div>
-                    <p>Access patient records, history, and appointments in one organized dashboard.</p>
-                </div>
-                <div class="feature-card border-pink f-pink">
-                    <div class="icon"><img src="images/calendar.svg" alt="Calendar"></div>
-                    <div>Smart Appointment Scheduling</div>
-                    <p>Schedule, track, and manage patient appointments with ease and clarity.</p>
-                </div>
-                <div class="feature-card border-yellow f-yellow">
-                    <div class="icon"><img src="images/clock.svg" alt="Clock"></div> <!-- clock for Todo/Time -->
-                    <div>To do List</div>
-                    <p>Organize daily tasks, follow-ups, and reminders to stay on top of your practice.</p>
-                </div>
-                <div class="feature-card border-green f-green">
-                    <div class="icon"><img src="images/chart-line.svg" alt="Dashboard"></div>
-                    <div>Organized Dashboard</div>
-                    <p>Get a clear overview of your day, patients, and tasks-all from one smart dashboard.</p>
-                </div>
-                <div class="feature-card border-blue f-blue coming-soon-card">
-                    <div class="ribbon"><span>Coming Soon</span></div>
-                    <div class="icon"><img src="images/brain.svg" alt="Brain"></div>
-                    <div>Billing & Inventory</div>
-                    <p>Handle invoices and payments effortlessly, with inventory management features launching</p>
-                </div>
+            <div class="features-grid" id="features-grid">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </section>
@@ -149,35 +105,8 @@
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            <div class="services-list">
-                <div class="service-item">
-                    <div class="s-number">01</div>
-                    <div class="s-content">
-                        <h3>Practice Dashboard & Insights</h3>
-                        <p>View data about patient activity and key performance data at a glance.</p>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <div class="s-number">02</div>
-                    <div class="s-content">
-                        <h3>Multi-Device Access</h3>
-                        <p>Manage your practice anytime, anywhere—desktop, tablet, or mobile.</p>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <div class="s-number">03</div>
-                    <div class="s-content">
-                        <h3>Data Security & Privacy</h3>
-                        <p>Protect sensitive patient information with industry-standard security and compliance.</p>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <div class="s-number">04</div>
-                    <div class="s-content">
-                        <h3>Automated Notifications & Reminders</h3>
-                        <p>Send appointment reminders, follow-ups, and important alerts automatically.</p>
-                    </div>
-                </div>
+            <div class="services-list" id="services-list">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </section>
@@ -187,26 +116,15 @@
         <div class="container">
             <h2 class="section-title">What Our Customer Say?</h2>
             <div class="testimonial-content">
-                <div class="avatars">
-                    <!-- Placeholder avatars -->
-                    <img src="https://i.pravatar.cc/50?img=1" alt="User" class="nav-avatar">
-                    <img src="https://i.pravatar.cc/50?img=2" alt="User" class="nav-avatar">
-                    <img src="https://i.pravatar.cc/50?img=6" alt="User" class="nav-avatar">
-                    <img src="https://i.pravatar.cc/80?img=3" class="active" alt="User"> <!-- Active center -->
-                    <img src="https://i.pravatar.cc/50?img=7" alt="User" class="nav-avatar">
-                    <img src="https://i.pravatar.cc/50?img=4" alt="User" class="nav-avatar">
-                    <img src="https://i.pravatar.cc/50?img=5" alt="User" class="nav-avatar">
+                <div class="avatars" id="testimonial-avatars">
+                    <!-- Dynamic Content -->
                 </div>
                 <div class="testimonial-card-wrapper">
-                    <button class="nav-btn prev"><i class="fas fa-arrow-left"></i></button>
-                    <div class="testimonial-card">
-                        <h4>Bakir Naim</h4>
-                        <span class="role">Speech Doctor</span>
-                        <p>Corem ipsum dolor sit amet, consectetur adipiscing elit. Corem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit. Corem ipsum dolor sit amet, consectetur.</p>
+                    <button class="nav-btn prev" id="prev-btn"><i class="fas fa-arrow-left"></i></button>
+                    <div class="testimonial-card" id="testimonial-card">
+                        <!-- Dynamic Content -->
                     </div>
-                    <button class="nav-btn next"><i class="fas fa-arrow-right"></i></button>
+                    <button class="nav-btn next" id="next-btn"><i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -216,49 +134,8 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <h2 class="section-title">Pricing</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Solo Plan</h3>
-                    <div class="price">$25 <span>USD</span></div>
-                    <p class="card-desc">Only one doctor without secretary with unlimited patients</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Patient Management</li>
-                        <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
-                        <li><i class="fas fa-check-circle"></i> Todo List</li>
-                        <li><i class="fas fa-check-circle"></i> Organized Dashboard</li>
-                    </ul>
-                    <button class="btn btn-primary btn-block">Get Started</button>
-                </div>
-                <div class="pricing-card">
-                    <h3>Professional Plan</h3>
-                    <div class="price">$50 <span>USD</span></div>
-                    <p class="card-desc">One doctor with secretary with unlimited patients and inventory management with
-                        billing features</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Patient Management</li>
-                        <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
-                        <li><i class="fas fa-check-circle"></i> Todo List</li>
-                        <li><i class="fas fa-check-circle"></i> Organized Dashboard</li>
-                        <li><i class="fas fa-check-circle"></i> Secretary User</li>
-                        <li><i class="fas fa-check-circle"></i> Billing & Inventory</li>
-                    </ul>
-                    <button class="btn btn-primary btn-block">Get Started</button>
-                </div>
-                <div class="pricing-card">
-                    <h3>Clinical Plan</h3>
-                    <div class="price">$85 <span>USD</span></div>
-                    <p class="card-desc">Two doctors with secretaries with unlimited patients and inventory management
-                        with billing features, for each additional doctor add $15</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Patient Management</li>
-                        <li><i class="fas fa-check-circle"></i> Appointment Scheduling</li>
-                        <li><i class="fas fa-check-circle"></i> Todo List</li>
-                        <li><i class="fas fa-check-circle"></i> Organized Dashboard</li>
-                        <li><i class="fas fa-check-circle"></i> 5 Doctor's Accounts</li>
-                        <li><i class="fas fa-check-circle"></i> Billing & Inventory</li>
-                    </ul>
-                    <button class="btn btn-primary btn-block">Get Started</button>
-                </div>
+            <div class="pricing-grid" id="pricing-grid">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </section>
@@ -267,49 +144,8 @@
     <section class="faq" id="faq">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">What is this platform used for? <i class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Who is this system designed for? <i class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is my data secure? <i class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can I manage all patient records in one place? <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How does appointment scheduling work? <i class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can patients submit forms before their visit? <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How does the to-do list help daily practice management? <i
-                            class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can I set reminders or follow-up tasks? <i class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Does the platform support billing and invoicing? <i
-                            class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can I access the platform from any device? <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is training or onboarding provided? <i class="fas fa-plus"></i></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can this system be customized for my clinic? <i class="fas fa-plus"></i>
-                    </div>
-                </div>
+            <div class="faq-grid" id="faq-grid">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </section>
@@ -322,29 +158,30 @@
             <div class="contact-wrapper">
                 <div class="contact-text">
                     <h3>Get in Touch</h3>
-                    <p class="contact-desc">Corem ipsum dolor sit amet, consectetur adipiscing elit. Corem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Corem ipsum dolor sit amet, consectetur</p>
+                    <p class="contact-desc">For any inquiries or questions, please feel free to contact us. We are here
+                        to
+                        assist you with any questions you may have.</p>
 
                     <div class="contact-details">
                         <div class="info-item">
                             <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <h5>Location</h5>
-                                <p>Beirut, Chiyah</p>
+                                <p>Beirut, Lebanon</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <div class="icon-circle"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <h5>Email Us</h5>
-                                <p>support@gmail.com</p>
+                                <p>support@chamaeleo.tech</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
                             <div>
                                 <h5>Call Us</h5>
-                                <p>+961-1121212</p>
+                                <p>961 81 659 369</p>
                             </div>
                         </div>
                     </div>
@@ -414,9 +251,9 @@
             <div class="footer-col">
                 <h4>Follow us</h4>
                 <div class="social-icons vertical">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/patienthub/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-col footer-action">
@@ -434,6 +271,7 @@
         </div>
     </footer>
 
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 
