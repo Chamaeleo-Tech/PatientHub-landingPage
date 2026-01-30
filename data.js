@@ -119,41 +119,46 @@ const data = {
             name: "Basic Plan",
             price: "$25",
             currency: "USD",
-            desc: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+            desc: "Only one doctor, No secretary, Unlimited patients, No billing,No inventory",
             features: [
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1"
+                "To do management",
+                "Appointments management",
+                "Patient management",
+                "Dashboard",
+                "Multi device access"
             ]
         },
         {
             name: "Professional",
             price: "$50",
             currency: "USD",
-            desc: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+            desc: "Only one doctor, one secretary, Unlimited patients, billing, inventory",
             isPopular: true,
             features: [
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1"
+                "To do management",
+                "Appointments management",
+                "Patient management",
+                "Dashboard",
+                "Multi device access",
+                "Data security",
+                "Billing",
+                "Inventory"
             ]
         },
         {
             name: "clinical",
             price: "$25",
             currency: "USD",
-            desc: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+            desc: "A clinic manager, two doctors, two secretaries, Unlimited patients, billing, inventory for every extra doctor $15",
             features: [
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1",
-                "Feature 1"
+                "To do management",
+                "Appointments management",
+                "Patient management",
+                "Dashboard",
+                "Multi device access",
+                "Data security",
+                "Billing",
+                "Inventory"
             ]
         }
     ],
