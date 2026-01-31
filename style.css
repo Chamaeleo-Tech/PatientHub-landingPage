@@ -287,6 +287,11 @@ header {
     gap: 15px;
 }
 
+.header-buttons .btn {
+    width: 160px;
+    white-space: nowrap;
+}
+
 .mobile-menu-icon {
     display: none;
     font-size: 1.5rem;
@@ -505,25 +510,70 @@ header {
 }
 
 .mv-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent for glass look */
+    backdrop-filter: blur(10px);
+    /* Blurs the background behind the card */
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: var(--shadow-sm);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Soft white border */
     text-align: center;
     position: relative;
-    transition: transform 0.3s;
+
+    /* Ultra-smooth transition using a custom cubic-bezier */
+    transition:
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease;
+
     font-family: 'Urbanist', sans-serif;
     font-weight: 500;
     font-size: 24px;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .mv-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    /* Lift + Zoom: 12px up and 5% larger */
+    transform: translateY(-12px) scale(1.05);
 
-    h3 {
-        color: var(--primary-color);
-    }
+    /* Glowing shadow matching your brand color (primary-color) */
+    box-shadow:
+        0 20px 40px rgba(38, 123, 190, 0.15),
+        0 0 0 1px rgba(38, 123, 190, 0.1);
+    /* Subtle colored outline */
+
+    border-color: rgba(38, 123, 190, 0.4);
+}
+
+/* The Animated Accent Bar */
+.mv-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--primary-color);
+    transition: all 0.4s ease;
+    border-radius: 2px;
+}
+
+.mv-card:hover::after {
+    width: 60%;
+    left: 20%;
+}
+
+/* Internal Movement: Make the text move slightly too */
+.mv-card h3 {
+    transition: transform 0.5s ease;
+}
+
+.mv-card:hover h3 {
+    /* This creates 'Parallax' - the text moves independently of the card */
+    transform: translateY(-5px);
+    color: var(--primary-color);
 }
 
 .mv-card h3 {
@@ -547,37 +597,17 @@ header {
     gap: 20px;
 }
 
-.feature-card {
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid;
-    transition: 0.3s;
+.feature-card div {
+    color: var(--accent-color);
+    margin-top: 0;
+    font-size: 18px;
+}
 
-    max-height: 255px;
-    text-align: center;
-    border: 1px solid var(--border-color);
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 500;
-    line-height: 24px;
-
-
-    div {
-        color: var(--accent-color);
-        margin-top: 0;
-        font-size: 18px;
-    }
-
-    p {
-        margin-top: 0;
-        font-size: 16px;
-        color: black;
-        letter-spacing: 0%;
-    }
+.feature-card p {
+    margin-top: 0;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 0%;
 }
 
 .border-purple {
@@ -605,16 +635,82 @@ header {
     background-color: var(--f-blue-bg);
 }
 
+.feature-card {
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    /* Transition: Adjusted to cubic-bezier for a more 'snappy' professional feel */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
+    max-height: 255px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Individual Color Hover Logic */
+/* We target the specific border classes to make the shadow match the color */
+
+.border-purple:hover {
+    box-shadow: 0 10px 30px var(--f-purple-bg);
+    border-color: var(--f-purple-border);
+}
+
+.border-pink:hover {
+    box-shadow: 0 10px 30px var(--f-pink-bg);
+    border-color: var(--f-pink-border);
+}
+
+.border-yellow:hover {
+    box-shadow: 0 10px 30px var(--f-yellow-bg);
+    border-color: var(--f-yellow-border);
+}
+
+.border-green:hover {
+    box-shadow: 0 10px 30px var(--f-green-bg);
+    border-color: var(--f-green-border);
+}
+
+.border-blue:hover {
+    box-shadow: 0 10px 30px var(--f-blue-bg);
+    border-color: var(--f-blue-border);
+}
+
+.feature-card:hover {
+    /* Slightly more lift for attractiveness */
+    transform: translateY(-8px) scale(1.03);
+}
+
 .feature-card .icon {
     width: 50px;
     height: 50px;
-    border-radius: 99%;
+    border-radius: 50%;
+    /* Using 50% is cleaner for circles */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    margin: 0 auto 8px auto;
+    margin: 0 auto 12px auto;
     background-color: white;
+    /* Adding a subtle initial shadow to the icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.feature-card:hover .icon {
+    /* The icon now "pops" more and tilts */
+    transform: scale(1.2) rotate(8deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card .icon img {
@@ -728,7 +824,6 @@ header {
 .service-item:hover .s-content h3,
 .service-item:hover .s-content p {
     color: var(--white);
-    font-weight: 800;
 }
 
 /* Testimonials */
@@ -762,6 +857,7 @@ header {
     position: relative;
     z-index: 2;
     height: 120px;
+    top: -30;
     /* Fixed height for alignment */
 }
 
@@ -850,13 +946,57 @@ header {
 
 .testimonial-card {
     background: #E6E5E6;
-    padding: 40px 40px;
+    padding: 20px 30px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
     max-width: 800px;
     width: 100%;
     position: relative;
     z-index: 1;
+    min-height: 270px;
+    height: 270px;
+    /* Fixed height to prevent resizing */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Anchor content to top */
+}
+
+/* Animation for avatars */
+@keyframes avatarFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Note: We handle specific transform translations in nth-child rules, 
+   so avoiding transform animation here to prevent conflict. 
+   Using simple opacity/filter instead. */
+@keyframes avatarSimpleFade {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.avatars img {
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    object-fit: cover;
+    animation: avatarSimpleFade 0.5s ease-out forwards;
 }
 
 .testimonial-card h4 {
@@ -934,6 +1074,7 @@ header {
 }
 
 .pricing-grid {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 80px;
@@ -955,7 +1096,8 @@ header {
 }
 
 .pricing-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(38, 123, 190, 0.2);
 }
 
 .pricing-card.popular {
@@ -992,6 +1134,7 @@ header {
 
 .popular-badge i {
     font-size: 0.8rem;
+    color: #FFCC00;
 }
 
 .pricing-card h3 {
@@ -1780,6 +1923,8 @@ footer {
 
     .testimonial-card {
         padding: 20px 40px;
+        min-height: 320px;
+        height: 320px;
     }
 
 

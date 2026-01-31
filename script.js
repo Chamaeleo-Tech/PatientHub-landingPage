@@ -106,8 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         testimonialCard.style.opacity = 0;
-        setTimeout(() => testimonialCard.style.opacity = 1, 50);
-        testimonialCard.style.transition = 'opacity 0.3s ease';
+        testimonialCard.style.transform = 'translateY(20px)';
+        testimonialCard.style.transition = 'all 0.4s ease-out';
+
+        setTimeout(() => {
+            testimonialCard.style.opacity = 1;
+            testimonialCard.style.transform = 'translateY(0)';
+        }, 50);
     }
 
     if (prevBtn && nextBtn) {
