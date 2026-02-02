@@ -172,6 +172,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. FAQ
     const faqGrid = document.getElementById('faq-grid');
     if (faqGrid) {
+        // Create two columns for masonry layout
+        const col1 = document.createElement('div');
+        const col2 = document.createElement('div');
+        col1.className = 'faq-column';
+        col2.className = 'faq-column';
+
+        // Style columns to take equal width
+        col1.style.flex = '1';
+        col2.style.flex = '1';
+        col1.style.display = 'flex';
+        col2.style.display = 'flex';
+        col1.style.flexDirection = 'column';
+        col2.style.flexDirection = 'column';
+        col1.style.gap = '20px';
+        col2.style.gap = '20px';
+
         data.faq.forEach((question, index) => {
             const item = document.createElement('div');
             item.className = 'faq-item reveal'; // No stagger for FAQ, just reveal
@@ -179,8 +195,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="faq-question">${question} <i class="fas fa-plus"></i></div>
                 <p class="faq-answer">This is a placeholder answer for the FAQ. The platform helps manage patient data securely and efficiently.</p>
             `;
-            faqGrid.appendChild(item);
+
+            // Distribute items alternatingly
+            if (index % 2 === 0) {
+                col1.appendChild(item);
+            } else {
+                col2.appendChild(item);
+            }
         });
+
+        faqGrid.appendChild(col1);
+        faqGrid.appendChild(col2);
 
         // Re-attach listeners to new DOM elements
         attachFaqListeners();

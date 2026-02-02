@@ -1227,9 +1227,9 @@ header {
 }
 
 .faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 20px;
+    align-items: flex-start;
 }
 
 .faq-item {
@@ -1953,7 +1953,7 @@ footer {
 
     /* FAQ */
     .faq-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     /* Contact - Mobile Redesign */
