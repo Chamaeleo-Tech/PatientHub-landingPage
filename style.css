@@ -142,7 +142,7 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 54px;
+    height: 48px;
     padding: 0 30px;
     border-radius: 50px;
     font-weight: 600;
@@ -510,9 +510,9 @@ header {
 }
 
 .mv-card {
-    background: rgba(255, 255, 255, 0.8);
     /* Semi-transparent for glass look */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(40px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.356);
     /* Blurs the background behind the card */
     padding: 40px;
     border-radius: 20px;
@@ -529,7 +529,7 @@ header {
 
     font-family: 'Urbanist', sans-serif;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 18px;
     cursor: pointer;
     overflow: hidden;
 }
@@ -578,7 +578,7 @@ header {
 
 .mv-card h3 {
     color: var(--accent-color);
-    font-size: 36px;
+    font-size: 28px;
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
     margin-bottom: 15px;
@@ -746,7 +746,7 @@ header {
 
 /* Services */
 .services {
-    padding: 100px 0;
+    padding: 50px 0;
     font-family: 'Manrope', sans-serif;
     /* Use Manrope for the bold look */
 }
@@ -800,7 +800,7 @@ header {
 }
 
 .s-content h3 {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 0;
     color: #1a1a1a;
     font-family: 'Manrope', sans-serif;
@@ -1069,8 +1069,51 @@ header {
 
 /* Pricing */
 .pricing {
-    padding: 100px 0;
-    background: #e6e6e6;
+    padding: 80px 0;
+    position: relative;
+    /* To contain the absolute positioned SVGs */
+    overflow: hidden;
+
+    /* Prevent SVGs from spilling out */
+}
+
+/* Background SVGs attached to cards to prevent gap overflow */
+.pricing-card-left::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* Anchored to the inner edge (next to gap) */
+    width: 200%;
+    /* Extends far leftwards */
+    height: 100%;
+    background-image: url('images/left.svg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    /* Align image end to the cut-off point */
+    background-size: cover;
+    z-index: -2;
+    /* Cover height, keep aspect */
+    pointer-events: none;
+}
+
+.pricing-card-right::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    /* Anchored to the inner edge (next to gap) */
+    width: 200%;
+    /* Extends far rightwards */
+    height: 100%;
+    background-image: url('images/right.svg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    /* Align image start to the cut-off point */
+    background-size: cover;
+    z-index: -2;
+    pointer-events: none;
 }
 
 .pricing-grid {
@@ -1081,27 +1124,40 @@ header {
 }
 
 .pricing-card {
-    background: white;
     /* Light gray background/off-white */
-    padding: 30px 20px;
+    padding: 20px 20px;
     border-radius: 12px;
     text-align: left;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    box-shadow: 0 10px 50px rgba(53, 65, 73, 0.2);
     /* Soft shadow */
     position: relative;
+    isolation: isolate;
     border: none;
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
+.pricing-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white;
+    border-radius: inherit;
+    z-index: -1;
+}
+
 .pricing-card:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(38, 123, 190, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.356);
+    z-index: 10;
+    /* Create stacking context on hover to pop out */
 }
 
 .pricing-card.popular {
-    background: white;
+    /* Background handled by ::after */
+
     /* Same bg */
     border: 1px solid #311b92;
     /* Dark purple border */
@@ -1149,7 +1205,7 @@ header {
     font-size: 2.5rem;
     font-weight: 800;
     color: #000;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     display: flex;
     align-items: baseline;
     gap: 5px;
@@ -1171,7 +1227,7 @@ header {
 }
 
 .pricing-card ul {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: left;
     padding-left: 0;
 }
@@ -1408,11 +1464,10 @@ header {
 
 /* Form Card (Right Side) */
 .contact-form-card {
-    background: #E6E5E6;
     /* Semi-transparent white card */
     padding: 50px;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.356);
     /* Soft shadow */
     backdrop-filter: blur(10px);
     width: 100%;
@@ -1675,6 +1730,12 @@ footer {
         gap: 15px;
         grid-template-columns: repeat(2, 1fr);
         /* 2 col on tablet */
+    }
+
+    /* Hide background SVGs when cards stack */
+    .pricing-card:first-child::before,
+    .pricing-card:last-child::before {
+        display: none;
     }
 
     .pricing-card {
@@ -2106,4 +2167,217 @@ footer {
 
 .btn-primary {
     animation: pulse-glow 2s infinite;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #20b858;
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+    color: white;
+    /* Ensure icon stays white */
+}
+
+/* Terms & Conditions Page */
+.legal-hero {
+    padding: 200px 0 100px 0;
+    /* Reduced bottom padding */
+    background-color: #eef4f9;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.legal-title {
+    font-size: 54px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+}
+
+.legal-subtitle {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legal-desc {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.legal-content {
+    background-color: #f4f6f8;
+    min-height: 50vh;
+    font-family: 'Urbanist', sans-serif;
+    padding-bottom: 50px;
+}
+
+.legal-sections {
+    max-width: 900px;
+    margin: -120px auto 0 auto;
+    /* Pull up over hero */
+    background: white;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.legal-item {
+    margin-bottom: 40px;
+}
+
+.legal-item:last-child {
+    margin-bottom: 0;
+}
+
+.legal-item h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    font-family: 'Manrope', sans-serif;
+}
+
+.legal-item p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+.legal-item ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.legal-item ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.contact-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+.contact-list li {
+    margin-bottom: 12px !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.contact-list span {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.contact-list a {
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-list a:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .legal-hero {
+        padding: 140px 0 40px 0;
+    }
+
+    .legal-title {
+        font-size: 2.2rem;
+        padding: 0 20px;
+    }
+
+    .legal-subtitle {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    .legal-sections {
+        padding: 30px 20px;
+        margin: 0 20px;
+    }
+
+    .legal-item h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Push heartbeat down for legal pages */
+.legal-hero .heartbeat-background {
+    top: 50%;
+    transform: translateY(0%);
+    opacity: 0.5;
+}
+
+/* Fixed Heartbeat for Legal Pages */
+.legal-hero .heartbeat-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -5;
+    /* Place deep in background */
+    opacity: 0.4;
+    transform: none;
+    /* Reset previous transforms */
+}
+
+/* Center the heartbeat line vertically in the fixed container */
+.legal-hero .heartbeat-background .hb-slice {
+    background-position: left center;
 }

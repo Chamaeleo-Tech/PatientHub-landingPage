@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.pricing.forEach((plan, index) => {
             const card = document.createElement('div');
             // Add 'popular' class if isPopular is true
-            card.className = `pricing-card reveal delay-${index * 200} ${plan.isPopular ? 'popular' : ''}`;
+            card.className = `pricing-card ${index === 0 ? 'pricing-card-left' : index === data.pricing.length - 1 ? 'pricing-card-right' : ''} reveal delay-${index * 200} ${plan.isPopular ? 'popular' : ''}`;
 
             let featuresHtml = '<ul>';
             plan.features.forEach(f => featuresHtml += `<li><i class="fas fa-check-circle"></i> ${f}</li>`);
