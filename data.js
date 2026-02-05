@@ -146,7 +146,7 @@ const data = {
             ]
         },
         {
-            name: "clinical",
+            name: "Clinical",
             price: "$85",
             currency: "USD",
             desc: "Five staff users, Unlimited patients, billing, inventory for every extra staff $15",
