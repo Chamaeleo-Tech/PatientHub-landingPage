@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.pricing.forEach((plan, index) => {
             const card = document.createElement('div');
             // Add 'popular' class if isPopular is true
-            card.className = `pricing-card reveal delay-${index * 200} ${plan.isPopular ? 'popular' : ''}`;
+            card.className = `pricing-card ${index === 0 ? 'pricing-card-left' : index === data.pricing.length - 1 ? 'pricing-card-right' : ''} reveal delay-${index * 200} ${plan.isPopular ? 'popular' : ''}`;
 
             let featuresHtml = '<ul>';
             plan.features.forEach(f => featuresHtml += `<li><i class="fas fa-check-circle"></i> ${f}</li>`);
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Wrap Price USD
-            const priceHtml = `${plan.price} <span class="currency">${plan.currency}</span>`;
+            const priceHtml = `${plan.price} <span class="month">/month</span>`;
 
             card.innerHTML = `
                 ${badgeHtml}
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="price">${priceHtml}</div>
                 <p class="card-desc">${plan.desc}</p>
                 ${featuresHtml}
-                <button class="btn ${btnClass} btn-block">Get Started</button>
+                <a href="https://wa.me/96171762637" target="_blank" class="btn ${btnClass} btn-block">Get Started</a>
             `;
             pricingGrid.appendChild(card);
         });
@@ -188,12 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
         col1.style.gap = '20px';
         col2.style.gap = '20px';
 
-        data.faq.forEach((question, index) => {
+        data.faq.forEach((faqItem, index) => {
             const item = document.createElement('div');
             item.className = 'faq-item reveal'; // No stagger for FAQ, just reveal
             item.innerHTML = `
-                <div class="faq-question">${question} <i class="fas fa-plus"></i></div>
-                <p class="faq-answer">This is a placeholder answer for the FAQ. The platform helps manage patient data securely and efficiently.</p>
+                <div class="faq-question">${faqItem.question} <i class="fas fa-plus"></i></div>
+                <p class="faq-answer">${faqItem.answer}</p>
             `;
 
             // Distribute items alternatingly
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isValid) {
                 const subject = `New Contact Message from ${fullName.value}`;
                 const body = `Name: ${fullName.value}\nEmail: ${email.value}\nPhone: ${phone.value}\nCompany: ${company.value}\n\nDescription:\n${description.value}`;
-                window.location.href = `mailto:support@patienthub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = `mailto:support@chamaeleo.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             }
         });
     }

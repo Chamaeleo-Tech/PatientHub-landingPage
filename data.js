@@ -119,7 +119,7 @@ const data = {
             name: "Basic Plan",
             price: "$25",
             currency: "USD",
-            desc: "Only one doctor, No secretary, Unlimited patients, No billing,No inventory",
+            desc: "Only one staff user Unlimited patients, No billing,No inventory",
             features: [
                 "To do management",
                 "Appointments management",
@@ -132,7 +132,7 @@ const data = {
             name: "Professional",
             price: "$50",
             currency: "USD",
-            desc: "Only one doctor, one secretary, Unlimited patients, billing, inventory",
+            desc: "Two staff users, Unlimited patients, billing, inventory",
             isPopular: true,
             features: [
                 "To do management",
@@ -147,9 +147,9 @@ const data = {
         },
         {
             name: "clinical",
-            price: "$25",
+            price: "$85",
             currency: "USD",
-            desc: "A clinic manager, two doctors, two secretaries, Unlimited patients, billing, inventory for every extra doctor $15",
+            desc: "Five staff users, Unlimited patients, billing, inventory for every extra staff $15",
             features: [
                 "To do management",
                 "Appointments management",
@@ -163,17 +163,57 @@ const data = {
         }
     ],
     faq: [
-        "What is this platform used for?",
-        "Who is this system designed for?",
-        "Is my data secure?",
-        "Can I manage all patient records in one place?",
-        "How does appointment scheduling work?",
-        "Can patients submit forms before their visit?",
-        "How does the to-do list help daily practice management?",
-        "Can I set reminders or follow-up tasks?",
-        "Does the platform support billing and invoicing?",
-        "Can I access the platform from any device?",
-        "Is training or onboarding provided?",
-        "Can this system be customized for my clinic?"
+        {
+            question: "What is this platform used for?",
+            answer: "It helps doctors manage patients, appointments, tasks, and clinic workflows in one system."
+        },
+        {
+            question: "Who is this system designed for?",
+            answer: "It’s built for doctors, clinics, and medical practices of all sizes."
+        },
+        {
+            question: "Is my data secure?",
+            answer: "Yes. Patient data is securely stored and protected following medical data standards."
+        },
+        {
+            question: "Can I manage all patient records in one place?",
+            answer: "Yes. All patient information, history, and notes are centralized and easy to access."
+        },
+        {
+            question: "How does appointment scheduling work?",
+            answer: "Doctors can create, track, and manage appointments from a simple calendar view."
+        },
+        {
+            question: "Can patients submit forms before their visit?",
+            answer: "Yes. Patients can fill out forms in advance to save time during appointments."
+        },
+        {
+            question: "How does the to-do list help daily practice management?",
+            answer: "It helps doctors track tasks, follow-ups, and reminders throughout the day."
+        },
+        {
+            question: "Can I set reminders or follow-up tasks?",
+            answer: "Yes. You can create tasks and reminders to stay organized."
+        },
+        {
+            question: "Does the platform support billing and invoicing?",
+            answer: "Billing features are coming soon to simplify payments and invoices."
+        },
+        {
+            question: "When will billing and inventory features be available?",
+            answer: "These features are currently in development and will be released soon."
+        },
+        {
+            question: "Can I access the platform from any device?",
+            answer: "Yes. The platform works across desktop, tablet, and mobile devices."
+        },
+        {
+            question: "Is training or onboarding provided?",
+            answer: "Yes. Simple onboarding and guidance are provided to get started quickly."
+        },
+        {
+            question: "Can this system be customized for my clinic?",
+            answer: "Yes. The platform can be tailored to fit your clinic’s workflow."
+        }
     ]
 };
