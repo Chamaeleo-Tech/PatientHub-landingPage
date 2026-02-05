@@ -119,7 +119,7 @@ const data = {
             name: "Basic Plan",
             price: "$25",
             currency: "USD",
-            desc: "Only one doctor, No secretary, Unlimited patients, No billing,No inventory",
+            desc: "Only one staff user Unlimited patients, No billing,No inventory",
             features: [
                 "To do management",
                 "Appointments management",
@@ -132,7 +132,7 @@ const data = {
             name: "Professional",
             price: "$50",
             currency: "USD",
-            desc: "Only one doctor, one secretary, Unlimited patients, billing, inventory",
+            desc: "Two staff users, Unlimited patients, billing, inventory",
             isPopular: true,
             features: [
                 "To do management",
@@ -149,7 +149,7 @@ const data = {
             name: "clinical",
             price: "$85",
             currency: "USD",
-            desc: "A clinic manager, two doctors, two secretaries, Unlimited patients, billing, inventory for every extra doctor $15",
+            desc: "Five staff users, Unlimited patients, billing, inventory for every extra staff $15",
             features: [
                 "To do management",
                 "Appointments management",
