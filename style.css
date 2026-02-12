@@ -31,18 +31,18 @@
 
 /* ... existing body/container styles ... */
 
-.features-grid {
+.services-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* 5 cards in a row for desktop */
     gap: 20px;
 }
 
-.feature-card:hover {
+.service-card:hover {
     transform: translateY(-5px);
 }
 
-.feature-card .icon {
+.service-card .icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -94,7 +94,7 @@
 
 /* Responsive Grid Update */
 @media (max-width: 1024px) {
-    .features-grid {
+    .services-grid {
         grid-template-columns: repeat(2, 1fr);
         /* 2 columns on tablet */
     }
@@ -608,23 +608,23 @@ header {
 }
 
 /* Features */
-.features {
+.services {
     padding: 100px 0;
 }
 
-.features-grid {
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
-.feature-card div {
+.service-card div {
     color: var(--accent-color);
     margin-top: 0;
     font-size: 18px;
 }
 
-.feature-card p {
+.service-card p {
     margin-top: 0;
     font-size: 16px;
     color: black;
@@ -656,7 +656,7 @@ header {
     background-color: var(--f-blue-bg);
 }
 
-.feature-card {
+.service-card {
     padding: 15px;
     border-radius: 15px;
     text-align: center;
@@ -705,12 +705,12 @@ header {
     border-color: var(--f-blue-border);
 }
 
-.feature-card:hover {
+.service-card:hover {
     /* Slightly more lift for attractiveness */
     transform: translateY(-8px) scale(1.03);
 }
 
-.feature-card .icon {
+.service-card .icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -728,13 +728,13 @@ header {
         box-shadow 0.3s ease;
 }
 
-.feature-card:hover .icon {
+.service-card:hover .icon {
     /* The icon now "pops" more and tilts */
     transform: scale(1.2) rotate(8deg);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.feature-card .icon img {
+.service-card .icon img {
     width: 60%;
     height: 60%;
     object-fit: contain;
@@ -765,14 +765,14 @@ header {
     color: var(--f-purple-border);
 }
 
-/* Services */
-.services {
+/* features */
+.features {
     padding: 50px 0;
     font-family: 'Manrope', sans-serif;
     /* Use Manrope for the bold look */
 }
 
-.services-list {
+.features-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -780,7 +780,7 @@ header {
     margin: 0 auto;
 }
 
-.service-item {
+.feature-item {
     background: transparent;
     padding: 30px 40px;
     display: flex;
@@ -791,7 +791,7 @@ header {
     cursor: pointer;
 }
 
-.service-item:hover {
+.feature-item:hover {
     background-color: var(--primary-color);
     border-bottom-color: transparent;
     border-radius: 8px;
@@ -800,7 +800,7 @@ header {
     transform: scale(1.02);
 }
 
-.s-number {
+.feature-number {
     font-size: 32px;
     font-weight: 600;
     font-family: 'Manrope', sans-serif;
@@ -811,7 +811,7 @@ header {
     transition: color 0.3s;
 }
 
-.s-content {
+.feature-content {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     /* Split title and desc */
@@ -820,7 +820,7 @@ header {
     width: 100%;
 }
 
-.s-content h3 {
+.feature-content h3 {
     font-size: 24px;
     margin-bottom: 0;
     color: #1a1a1a;
@@ -830,7 +830,7 @@ header {
     transition: color 0.3s;
 }
 
-.s-content p {
+.feature-content p {
     font-size: 20px;
     color: #1a1a1a;
     font-weight: 600;
@@ -841,9 +841,9 @@ header {
 }
 
 /* Hover States for Children */
-.service-item:hover .s-number,
-.service-item:hover .s-content h3,
-.service-item:hover .s-content p {
+.feature-item:hover .feature-number,
+.feature-item:hover .feature-content h3,
+.feature-item:hover .feature-content p {
     color: var(--white);
 }
 
@@ -1632,12 +1632,14 @@ footer {
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 0.5fr 1fr;
-    /* Adjusted for column widths */
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    /* Adjusted for new column structure */
     gap: 40px;
     margin-bottom: 40px;
     align-items: start;
 }
+
+/* ... existing styles ... */
 
 .footer-col .logo {
     margin-bottom: 25px;
@@ -1689,21 +1691,11 @@ footer {
     margin-top: 0;
 }
 
-.social-icons.vertical {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    /* Center icons horizontally in their stack */
-    width: 100%;
-    /* Ensure container takes full width to align properly with text if needed */
-}
-
-/* Specific alignment for Follow Us column */
-.footer-container .footer-col:nth-child(3) {
+/* Specific alignment for Follow Us column (4th column now) */
+.footer-container .footer-col:nth-child(4) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centers both the h4 and the icons */
 }
 
 .social-icons a {
@@ -1951,7 +1943,7 @@ footer {
     }
 
     /* Features */
-    .features-grid {
+    .services-grid {
         grid-template-columns: 1fr;
     }
 
