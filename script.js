@@ -29,36 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Features
-    const featuresGrid = document.getElementById('features-grid');
-    if (featuresGrid) {
-        data.features.forEach((feature, index) => {
+    const servicesGrid = document.getElementById('services-grid');
+    if (servicesGrid) {
+        data.services.forEach((service, index) => {
             const card = document.createElement('div');
-            card.className = `feature-card ${feature.styleClass} reveal delay-${(index % 3) * 200}`;
-            let ribbonHtml = feature.isComingSoon ? '<div class="ribbon"><span>Coming Soon</span></div>' : '';
+            card.className = `service-card ${service.styleClass} reveal delay-${(index % 3) * 200}`;
+            let ribbonHtml = service.isComingSoon ? '<div class="ribbon"><span>Coming Soon</span></div>' : '';
             card.innerHTML = `
                 ${ribbonHtml}
-                <div class="icon"><img src="${feature.icon}" alt="${feature.title}"></div>
-                <div>${feature.title}</div>
-                <p>${feature.description}</p>
+                <div class="icon"><img src="${service.icon}" alt="${service.title}"></div>
+                <div>${service.title}</div>
+                <p>${service.description}</p>
             `;
-            featuresGrid.appendChild(card);
+            servicesGrid.appendChild(card);
         });
     }
 
     // 4. Services
-    const servicesList = document.getElementById('services-list');
-    if (servicesList) {
-        data.services.forEach((service, index) => {
+    const featuresList = document.getElementById('features-list');
+    if (featuresList) {
+        data.features.forEach((feature, index) => {
             const item = document.createElement('div');
-            item.className = `service-item reveal delay-${index * 100}`;
+            item.className = `feature-item reveal delay-${index * 100}`;
             item.innerHTML = `
-                <div class="s-number">${service.number}</div>
-                <div class="s-content">
-                    <h3>${service.title}</h3>
-                    <p>${service.description}</p>
+                <div class="feature-number">${feature.number}</div>
+                <div class="feature-content">
+                    <h3>${feature.title}</h3>
+                    <p>${feature.description}</p>
                 </div>
             `;
-            servicesList.appendChild(item);
+            featuresList.appendChild(item);
         });
     }
 
