@@ -8,7 +8,7 @@ const data = {
         mission: "To amplify healthcare workforce by helping doctors manage patients, appointments and tasks virtually so they can focus on what matters most: patient care.",
         vision: "To empower medical professionals with smart, intuitive tools that make healthcare management more organized, connected, and human."
     },
-    services: [
+    features: [
         {
             title: "Streamlined Patient Management",
             description: "Access patient records, history, and appointments in one organized dashboard.",
@@ -41,7 +41,7 @@ const data = {
             isComingSoon: true
         }
     ],
-    features: [
+    services: [
         {
             number: "01",
             title: "Practice Dashboard & Insights",

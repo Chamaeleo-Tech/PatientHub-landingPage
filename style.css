@@ -31,18 +31,18 @@
 
 /* ... existing body/container styles ... */
 
-.services-grid {
+.features-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* 5 cards in a row for desktop */
     gap: 20px;
 }
 
-.service-card:hover {
+.feature-card:hover {
     transform: translateY(-5px);
 }
 
-.service-card .icon {
+.feature-card .icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -94,7 +94,7 @@
 
 /* Responsive Grid Update */
 @media (max-width: 1024px) {
-    .services-grid {
+    .features-grid {
         grid-template-columns: repeat(2, 1fr);
         /* 2 columns on tablet */
     }
@@ -105,19 +105,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 120px;
-    /* Offset for fixed header (20px top + ~85px header + gap) */
-}
-
-@media (max-width: 768px) {
-    html {
-        scroll-padding-top: 80px;
-        /* Smaller offset for mobile header (~70px height) */
-    }
 }
 
 body {
@@ -608,23 +595,23 @@ header {
 }
 
 /* Features */
-.services {
+.features {
     padding: 100px 0;
 }
 
-.services-grid {
+.features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
-.service-card div {
+.feature-card div {
     color: var(--accent-color);
     margin-top: 0;
     font-size: 18px;
 }
 
-.service-card p {
+.feature-card p {
     margin-top: 0;
     font-size: 16px;
     color: black;
@@ -656,7 +643,7 @@ header {
     background-color: var(--f-blue-bg);
 }
 
-.service-card {
+.feature-card {
     padding: 15px;
     border-radius: 15px;
     text-align: center;
@@ -705,12 +692,12 @@ header {
     border-color: var(--f-blue-border);
 }
 
-.service-card:hover {
+.feature-card:hover {
     /* Slightly more lift for attractiveness */
     transform: translateY(-8px) scale(1.03);
 }
 
-.service-card .icon {
+.feature-card .icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -728,13 +715,13 @@ header {
         box-shadow 0.3s ease;
 }
 
-.service-card:hover .icon {
+.feature-card:hover .icon {
     /* The icon now "pops" more and tilts */
     transform: scale(1.2) rotate(8deg);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.service-card .icon img {
+.feature-card .icon img {
     width: 60%;
     height: 60%;
     object-fit: contain;
@@ -765,14 +752,14 @@ header {
     color: var(--f-purple-border);
 }
 
-/* features */
-.features {
+/* Services */
+.services {
     padding: 50px 0;
     font-family: 'Manrope', sans-serif;
     /* Use Manrope for the bold look */
 }
 
-.features-list {
+.services-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -780,7 +767,7 @@ header {
     margin: 0 auto;
 }
 
-.feature-item {
+.service-item {
     background: transparent;
     padding: 30px 40px;
     display: flex;
@@ -791,7 +778,7 @@ header {
     cursor: pointer;
 }
 
-.feature-item:hover {
+.service-item:hover {
     background-color: var(--primary-color);
     border-bottom-color: transparent;
     border-radius: 8px;
@@ -800,7 +787,7 @@ header {
     transform: scale(1.02);
 }
 
-.feature-number {
+.s-number {
     font-size: 32px;
     font-weight: 600;
     font-family: 'Manrope', sans-serif;
@@ -811,7 +798,7 @@ header {
     transition: color 0.3s;
 }
 
-.feature-content {
+.s-content {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     /* Split title and desc */
@@ -820,7 +807,7 @@ header {
     width: 100%;
 }
 
-.feature-content h3 {
+.s-content h3 {
     font-size: 24px;
     margin-bottom: 0;
     color: #1a1a1a;
@@ -830,7 +817,7 @@ header {
     transition: color 0.3s;
 }
 
-.feature-content p {
+.s-content p {
     font-size: 20px;
     color: #1a1a1a;
     font-weight: 600;
@@ -841,9 +828,9 @@ header {
 }
 
 /* Hover States for Children */
-.feature-item:hover .feature-number,
-.feature-item:hover .feature-content h3,
-.feature-item:hover .feature-content p {
+.service-item:hover .s-number,
+.service-item:hover .s-content h3,
+.service-item:hover .s-content p {
     color: var(--white);
 }
 
@@ -1632,14 +1619,12 @@ footer {
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    /* Adjusted for new column structure */
+    grid-template-columns: 1.5fr 1fr 0.5fr 1fr;
+    /* Adjusted for column widths */
     gap: 40px;
     margin-bottom: 40px;
     align-items: start;
 }
-
-/* ... existing styles ... */
 
 .footer-col .logo {
     margin-bottom: 25px;
@@ -1691,11 +1676,21 @@ footer {
     margin-top: 0;
 }
 
-/* Specific alignment for Follow Us column (4th column now) */
-.footer-container .footer-col:nth-child(4) {
+.social-icons.vertical {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    /* Center icons horizontally in their stack */
+    width: 100%;
+    /* Ensure container takes full width to align properly with text if needed */
+}
+
+/* Specific alignment for Follow Us column */
+.footer-container .footer-col:nth-child(3) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Centers both the h4 and the icons */
 }
 
 .social-icons a {
@@ -1943,7 +1938,7 @@ footer {
     }
 
     /* Features */
-    .services-grid {
+    .features-grid {
         grid-template-columns: 1fr;
     }
 
