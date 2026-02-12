@@ -107,6 +107,19 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+    /* Offset for fixed header (20px top + ~85px header + gap) */
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 80px;
+        /* Smaller offset for mobile header (~70px height) */
+    }
+}
+
 body {
     font-family: var(--font-family);
     color: var(--text-dark);
