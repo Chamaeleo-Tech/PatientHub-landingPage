@@ -1,7 +1,7 @@
 const data = {
     stats: [
-        { count: "10+", label: "Doctors" },
-        { count: "10+", label: "Specialities" },
+        { count: "50+", label: "Doctors" },
+        { count: "8+", label: "Specialities" },
         { count: "10+", label: "Clinics" }
     ],
     missionVision: {

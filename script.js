@@ -2,13 +2,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Render Content from data.js ---
 
     // 1. Stats
+    // 1. Stats
     const statsContainer = document.getElementById('stats-container');
     if (statsContainer) {
         data.stats.forEach((item, index) => {
             const statDiv = document.createElement('div');
-            statDiv.className = `stat-item reveal delay-${(index + 1) * 100}`;
-            statDiv.innerHTML = `<div>${item.count}</div><p>${item.label}</p>`;
+            // Remove 'reveal' class to show immediately
+            statDiv.className = `stat-item`;
+
+            // Parse number and suffix (e.g., "10+" -> 10 and "+")
+            const numericValue = parseInt(item.count);
+            const suffix = item.count.replace(numericValue, '');
+
+            // Initial render with 0
+            statDiv.innerHTML = `<div class="stat-number" data-target="${numericValue}" data-suffix="${suffix}">0${suffix}</div><p>${item.label}</p>`;
             statsContainer.appendChild(statDiv);
+        });
+
+        // Animate numbers
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            const target = +stat.getAttribute('data-target');
+            const suffix = stat.getAttribute('data-suffix');
+            const duration = 2000; // Animation duration in ms
+            const start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Ease-out effect
+                const ease = 1 - Math.pow(1 - progress, 3);
+
+                const current = Math.floor(ease * (target - start) + start);
+                stat.innerHTML = `${current}${suffix}`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    stat.innerHTML = `${target}${suffix}`;
+                }
+            }
+            requestAnimationFrame(update);
         });
     }
 
