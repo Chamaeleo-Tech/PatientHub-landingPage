@@ -111,6 +111,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
     /* Offset for fixed header (20px top + ~85px header + gap) */
+    overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -127,6 +128,7 @@ body {
     background-color: var(--white);
     overflow-x: hidden;
     /* Prevent horizontal scroll */
+    width: 100%;
 }
 
 a {
@@ -1827,10 +1829,11 @@ footer {
 
     /* Hero Section - Split Layout */
     .hero {
-        height: 55vh;
-        /* Top half of screen */
-        min-height: 55vh;
-        padding: 90px 20px 0 20px;
+        height: auto;
+        /* Allow content to dictate height */
+        min-height: calc(100vh - 100px);
+        padding: 120px 20px 40px 20px;
+        /* Increased top padding for header */
         display: flex;
         flex-direction: column;
         /* Keep text high up */
@@ -1864,11 +1867,10 @@ footer {
     /* Stats Section - Bottom half of viewport */
     .stats-bar {
         margin: 0;
-        padding: 0;
+        padding: 20px 0;
         width: 100%;
-        height: 45vh;
-        /* Bottom half taking remaining space */
-        min-height: 45vh;
+        height: auto;
+        min-height: auto;
         background: var(--primary-color);
         display: flex;
         align-items: center;
@@ -1876,29 +1878,30 @@ footer {
     }
 
     .stats-container {
-        flex-direction: column !important;
-        /* Stack vertically as per image */
-        gap: 30px;
-        /* Space them out */
+        flex-direction: row !important;
+        /* Horizontal row */
+        gap: 0;
         padding: 0;
         justify-content: center;
-        height: 100%;
+        width: 100%;
+        height: auto;
     }
 
     .stat-item {
-        flex: initial;
+        flex: 1;
+        position: relative;
     }
 
     .stat-item div {
-        font-size: 2.5rem;
-        /* Big Numbers */
-        margin-bottom: 0;
+        font-size: 1.5rem;
+        /* Smaller Numbers */
+        margin-bottom: 5px;
         line-height: 1;
     }
 
     .stat-item p {
-        font-size: 0.9rem;
-        margin-top: 5px;
+        font-size: 0.75rem;
+        margin-top: 0;
         color: rgba(255, 255, 255, 0.9);
     }
 
@@ -1918,17 +1921,32 @@ footer {
     }
 
     /* Hero - Mobile Heartbeat Background */
+    .hb-track {
+        animation-name: scrollHeartbeatMobile;
+        animation-duration: 10s;
+        /* Adjusted speed for mobile width */
+    }
+
     .hb-slice {
         width: 100vw;
-        /* Fit screen width */
+        /* Fit screen width precisely for animation loop */
         background-image: url('images/mobile-heartbeat.svg');
         background-size: 100% auto;
         /* Ensure full visibility */
+        background-position: left center;
     }
 
     /* Ensure divider lines are removed */
+    /* Ensure divider lines are shown */
     .stat-item:not(:last-child)::after {
-        display: none;
+        display: block;
+        height: 40px;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.4);
+        width: 1px;
+        position: absolute;
     }
 
     .stat-item:active div,
@@ -1948,14 +1966,14 @@ footer {
     }
 
     /* Services */
-    /* Services - Redesign for Mobile */
-    .services-list {
+    /* Features - Redesign for Mobile */
+    .features-list {
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
 
-    .service-item {
+    .feature-item {
         flex-direction: column;
         text-align: left;
         align-items: flex-start;
@@ -1965,13 +1983,13 @@ footer {
     }
 
     /* Reset hover state for mobile touch */
-    .service-item:hover {
+    .feature-item:hover {
         background-color: var(--primary-color);
         color: inherit;
         border-bottom-color: #333;
     }
 
-    .s-number {
+    .feature-number {
         font-size: 2rem;
         font-weight: 800;
         color: #311b92;
@@ -1980,20 +1998,21 @@ footer {
         display: inline-block;
     }
 
-    .s-content {
+    .feature-content {
         display: block;
         text-align: left;
     }
 
-    .s-content h3 {
+    .feature-content h3 {
         display: inline;
         font-size: 1.2rem;
         color: #311b92;
         /* Match number color per design intuition/image */
         font-weight: 700;
+        margin-bottom: 5px;
     }
 
-    .s-content p {
+    .feature-content p {
         margin-top: 10px;
         font-size: 0.95rem;
         color: #000;
@@ -2201,6 +2220,17 @@ footer {
 
     100% {
         box-shadow: 0 0 0 0 rgba(38, 123, 190, 0);
+    }
+}
+
+@keyframes scrollHeartbeatMobile {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200vw);
+        /* Move exactly width of 2 slices on mobile */
     }
 }
 
