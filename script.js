@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="price">${priceHtml}</div>
                 <p class="card-desc">${plan.desc}</p>
                 ${featuresHtml}
-                <a href="https://wa.me/96171762637" target="_blank" class="btn ${btnClass} btn-block">Get Started</a>
+                <a href="https://wa.me/96171762637" target="_blank" class="btn ${btnClass} btn-block">Start 14 Days Free Trial</a>
             `;
             pricingGrid.appendChild(card);
         });
