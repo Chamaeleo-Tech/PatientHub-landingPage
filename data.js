@@ -125,7 +125,8 @@ const data = {
                 "Appointments management",
                 "Patient management",
                 "Dashboard",
-                "Multi device access"
+                "Multi device access",
+                "Data security"
             ]
         },
         {

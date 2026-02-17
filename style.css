@@ -211,18 +211,23 @@ img {
 /* ... existing code ... */
 
 /* Pricing Card Button Updates */
+/* Pricing Card Button Updates */
 .pricing-card .btn {
     width: 100%;
-    /* border, padding, font-size, etc. inherited from .btn now */
-    background-color: #0077b6;
-    color: white;
     margin-top: auto;
-    border: 2px solid transparent;
-    /* Ensure border width matches */
+    background: linear-gradient(135deg, #267BBE 0%, #1864A0 100%);
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: none;
+    box-shadow: 0 10px 20px rgba(38, 123, 190, 0.15);
+    transition: all 0.3s ease;
 }
 
 .pricing-card .btn:hover {
-    background-color: #023e8a;
+    background: linear-gradient(135deg, #1864A0 0%, #267BBE 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(38, 123, 190, 0.25);
 }
 
 /* Header */
@@ -1694,10 +1699,11 @@ footer {
 }
 
 /* Specific alignment for Follow Us column (4th column now) */
+/* Specific alignment for Follow Us column (4th column now) */
 .footer-container .footer-col:nth-child(4) {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .social-icons a {
@@ -2134,6 +2140,14 @@ footer {
 
     .social-icons {
         justify-content: center;
+    }
+
+    .footer-col .logo {
+        justify-content: center;
+    }
+
+    .footer-container .footer-col:nth-child(4) {
+        align-items: center;
     }
 
     .subscribe-form {
