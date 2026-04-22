@@ -71,9 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = `service-card ${service.styleClass} reveal delay-${(index % 3) * 200}`;
             let ribbonHtml = service.isComingSoon ? '<div class="ribbon"><span>Coming Soon</span></div>' : '';
+            const iconHtml = service.faIcon
+                ? `<div class="icon"><i class="${service.faIcon}" style="font-size:1.6rem;"></i></div>`
+                : `<div class="icon"><img src="${service.icon}" alt="${service.title}"></div>`;
             card.innerHTML = `
                 ${ribbonHtml}
-                <div class="icon"><img src="${service.icon}" alt="${service.title}"></div>
+                ${iconHtml}
                 <div>${service.title}</div>
                 <p>${service.description}</p>
             `;
