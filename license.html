@@ -2,207 +2,254 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PatientHub - License & Usage Terms</title>
-    <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatientHub – License &amp; Usage Terms</title>
+  <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="legal.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/PatientHub-icon.svg" alt="PatientHub Logo">
-                </a>
-            </div>
-            <nav class="desktop-nav">
-                <a href="index.html#about-us">About Us</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#pricing">Pricing</a>
-                <a href="index.html#faq">FAQ</a>
-            </nav>
-            <div class="header-buttons">
-                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
-                <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
-            </div>
-            <div class="mobile-menu-icon">
-                <i class="fas fa-bars"></i>
-            </div>
+  <!-- ================================================================ HEADER ================================================================ -->
+  <header id="mainHeader">
+    <div class="hdr">
+      <div class="logo">
+        <a href="index.html"><img src="images/PatientHub-icon.svg" alt="PatientHub"></a>
+        <a href="index.html"><span class="logo-name">PatientHub</span></a>
+      </div>
+      <nav class="desk-nav">
+        <a href="index.html#about-us">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="hdr-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
+        <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+      <div class="mob-icon" id="mobToggle"><i class="fas fa-bars" id="mobIcon"></i></div>
+    </div>
+    <div class="mob-nav" id="mobNav">
+      <a href="index.html#about-us">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+      <div class="mob-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
+        <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================================================ HERO ================================================================ -->
+  <section class="legal-hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="hero-dots"></div>
+    <div class="med-icons" aria-hidden="true">
+      <i class="fas fa-certificate med-icon mi1"></i>
+      <i class="fas fa-award med-icon mi2"></i>
+      <i class="fas fa-key med-icon mi3"></i>
+      <i class="fas fa-lock-open med-icon mi4"></i>
+      <i class="fas fa-stamp med-icon mi5"></i>
+      <i class="fas fa-check-double med-icon mi6"></i>
+    </div>
+    <div class="ecg-band" aria-hidden="true">
+      <svg class="ecg-svg" viewBox="0 0 2800 44" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <polyline points="0,22 100,22 118,5 136,39 154,5 172,39 190,22 280,22 298,10 316,34 334,10 352,34 370,22 460,22 478,5 496,39 514,5 532,39 550,22 640,22 658,10 676,34 694,10 712,34 730,22 820,22 838,5 856,39 874,5 892,39 910,22 1000,22 1018,10 1036,34 1054,10 1072,34 1090,22 1180,22 1198,5 1216,39 1234,5 1252,39 1270,22 1360,22 1378,10 1396,34 1414,10 1432,34 1450,22 1540,22 1558,5 1576,39 1594,5 1612,39 1630,22 1720,22 1738,10 1756,34 1774,10 1792,34 1810,22 1900,22 1918,5 1936,39 1954,5 1972,39 1990,22 2080,22 2098,10 2116,34 2134,10 2152,34 2170,22 2260,22 2278,5 2296,39 2314,5 2332,39 2350,22 2440,22 2458,10 2476,34 2494,10 2512,34 2530,22 2620,22 2638,5 2656,39 2674,5 2692,39 2710,22 2800,22"
+          stroke="rgba(38,123,190,0.75)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="legal-hero-content">
+      <a href="index.html" class="breadcrumb-link"><i class="fas fa-arrow-left"></i> Back to PatientHub</a>
+      <div class="legal-page-icon"><i class="fas fa-certificate"></i></div>
+      <h1>License &amp; <span class="grad-text">Usage Terms</span></h1>
+      <p class="legal-updated"><i class="fas fa-clock"></i> Last updated: April 2025</p>
+    </div>
+  </section>
+
+  <!-- ================================================================ CONTENT ================================================================ -->
+  <main class="legal-content">
+    <div class="container">
+      <div class="legal-main">
+
+        <div class="legal-intro">
+          <p>PatientHub is a licensed software-as-a-service (SaaS) platform designed for doctors and clinics to manage patients, appointments, billing, and clinical workflows. This document defines the terms under which the software license is granted and the conditions of its use.</p>
         </div>
-        <!-- Mobile Nav Menu -->
-        <div class="mobile-nav">
-            <a href="index.html#about-us">About Us</a>
-            <a href="index.html#services">Services</a>
-            <a href="index.html#features">Features</a>
-            <a href="index.html#pricing">Pricing</a>
-            <a href="index.html#faq">FAQ</a>
-            <div class="mobile-buttons">
-                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
-                <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
-            </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">01</span> Software License Grant</h2>
+          <p>Chamaeleo Tech grants you a limited, non-exclusive, non-transferable, revocable license to access and use the PatientHub platform according to your active subscription plan. This license is granted solely for your internal clinic management operations and does not transfer any ownership rights.</p>
+          <p>The license becomes effective upon account activation and remains valid for the duration of your active subscription.</p>
         </div>
-    </header>
 
-    <!-- Terms Hero Section -->
-    <section class="legal-hero">
-        <div class="heartbeat-background">
-            <div class="hb-track">
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-            </div>
+        <div class="legal-item">
+          <h2><span class="section-badge">02</span> Permitted Use</h2>
+          <p>Under this license, you are permitted to:</p>
+          <ul>
+            <li>Access and use PatientHub for managing patient records, appointments, billing, prescriptions, and other clinic workflows.</li>
+            <li>Allow authorized staff members (doctors, secretaries, administrators) to access the platform within your clinic account.</li>
+            <li>Use all features included in your active subscription plan.</li>
+            <li>Access the platform from any device via the web application or installed Progressive Web App (PWA).</li>
+            <li>Enable optional integrations (WhatsApp Business, Google Calendar) as available within your plan.</li>
+            <li>Export or back up your clinic data through the platform's supported export features.</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Terms Content -->
-    <section class="legal-content">
-        <div class="container">
-            <div class="legal-sections">
-                <h1 class="legal-title">License & Usage Terms</h1>
-                <p class="legal-desc">PatientHub is a licensed software platform designed for doctors and clinics to
-                    manage patients and appointments.</p>
-                <div class="legal-desc"></div> <!-- Spacer to match layout -->
-
-                <div class="legal-item">
-                    <h2>1. Software License</h2>
-                    <p>PatientHub grants users a limited, non-exclusive, non-transferable license to access and use the
-                        system according to their subscription plan.</p>
-                </div>
-
-                <div class="legal-item">
-                    <h2>2. Permitted Use</h2>
-                    <p>You may use PatientHub to:</p>
-                    <ul>
-                        <li>Manage patient records and appointments</li>
-                        <li>Organize clinic workflows</li>
-                        <li>Access system features provided in your plan</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>3. Restricted Use</h2>
-                    <p>You may not:</p>
-                    <ul>
-                        <li>Copy, modify, or resell the system</li>
-                        <li>Share access with unauthorized users</li>
-                        <li>Attempt to reverse engineer or misuse the platform</li>
-                        <li>Use the system for unlawful or unauthorized purposes</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>4. Ownership</h2>
-                    <ul>
-                        <li>PatientHub and all related content, software, and design remain the property of PatientHub.
-                        </li>
-                        <li>This license does not transfer ownership of the software.</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>5. Data Responsibility</h2>
-                    <ul>
-                        <li>Doctors and clinics are responsible for the accuracy and legality of the data they enter.
-                        </li>
-                        <li>PatientHub is not responsible for user-generated content.</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>6. Termination</h2>
-                    <p>PatientHub reserves the right to suspend or terminate access if license terms are violated.</p>
-                </div>
-
-                <div class="legal-item">
-                    <h2>7. Updates & Changes</h2>
-                    <p>We may update features, services, or license terms to improve the platform.</p>
-                </div>
-
-                <div class="legal-item contacts-section">
-                    <h2>8. Contact</h2>
-                    <p>For licensing questions, please contact:</p>
-                    <ul class="contact-list">
-                        <li><span>By email:</span> <a href="mailto:support@chamaeleo.tech">support@chamaeleo.tech</a>
-                        </li>
-                        <li><span>By visiting this page on our website:</span> <a
-                                href="https://patienthub.net">https://patienthub.net</a></li>
-                        <li><span>By phone number:</span> <a href="tel:+96171762637">+961 71 762637</a></li>
-                        <li><span>Address:</span> Lebanon, Beirut</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="legal-item">
+          <h2><span class="section-badge">03</span> Restrictions</h2>
+          <p>You may not, under any circumstances:</p>
+          <ul>
+            <li>Copy, modify, adapt, translate, or create derivative works of the PatientHub platform or its source code.</li>
+            <li>Reverse-engineer, decompile, disassemble, or attempt to extract the source code of the software.</li>
+            <li>Resell, sublicense, rent, lease, or transfer the platform or any part of it to any third party.</li>
+            <li>Share your login credentials or grant access to individuals who are not authorized clinic staff under your account.</li>
+            <li>Use the platform for any unlawful, fraudulent, or unauthorized purpose.</li>
+            <li>Attempt to bypass, disable, or circumvent any security, access control, or authentication mechanism.</li>
+            <li>Scrape, crawl, or use automated tools to extract data from the platform beyond your own clinic's data exports.</li>
+            <li>Use the platform in a way that interferes with or disrupts the service for other users.</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-col">
-                <div class="logo">
-                    <img src="images/PatientHub-icon.svg" alt="PatientHub Logo"
-                        style="height: 40px; width: auto; margin-right: 10px;">
-                    <span style="color: #203C88; font-weight: 700; font-size: 16px;">Patient Hub</span>
-                </div>
-                <p>Making healthcare accessible and efficient for everyone.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="index.html#about-us">About Us</a></li>
-                    <li><a href="index.html#features">Features</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="privacy.html">Privacy & Policy</a></li>
-                    <li><a href="license.html">License</a></li>
-                </ul>
-            </div>
-            <div class="footer-col" style="align-items: flex-start; display: flex; flex-direction: column;">
-                <h4 style="align-self: flex-start;">Follow us</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/share/1Avv3xpaaw/?mibextid=wwXIfr"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/patienthub/"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div style="margin-top: 20px;">
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
-                </div>
-            </div>
+        <div class="legal-item">
+          <h2><span class="section-badge">04</span> Ownership &amp; Intellectual Property</h2>
+          <ul>
+            <li>PatientHub and all related software, design, source code, features, algorithms, trademarks, and content are the exclusive intellectual property of Chamaeleo Tech.</li>
+            <li>This license does not transfer any ownership, title, or intellectual property rights to you.</li>
+            <li>Feedback, feature requests, or suggestions you provide may be used by Chamaeleo Tech without any obligation or compensation.</li>
+            <li>Patient data, clinic content, and records you enter into the platform remain the property of your clinic and patients. PatientHub acts solely as a data processor.</li>
+          </ul>
         </div>
-        <div class="copyright">
-            <p>Copyright @ 2025 All Rights Reserved</p>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">05</span> Data Responsibility</h2>
+          <ul>
+            <li>You are solely responsible for the accuracy, completeness, and legality of all data entered into the platform, including patient records, billing information, prescriptions, and dental chart entries.</li>
+            <li>PatientHub is not responsible for errors, omissions, or consequences arising from user-entered data.</li>
+            <li>You must ensure that patient data is handled in compliance with applicable healthcare privacy laws and regulations in your jurisdiction.</li>
+            <li>You are responsible for obtaining all necessary consents from patients before entering their data into the system or enabling integrations on their behalf.</li>
+          </ul>
         </div>
-    </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/96171762637" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <div class="legal-item">
+          <h2><span class="section-badge">06</span> Subscription &amp; License Tiers</h2>
+          <p>Access to platform features is governed by your active subscription plan:</p>
+          <ul>
+            <li><strong>Basic Plan ($25/month):</strong> One staff user. Core features including appointment management, patient management, prescriptions, to-do list, dashboard, and multi-device access.</li>
+            <li><strong>Professional Plan ($50/month):</strong> Two staff users. All Basic features plus billing &amp; invoicing, forms &amp; workflows, WhatsApp notifications, Google Calendar sync, expense tracking, and public booking page.</li>
+            <li><strong>Clinical Plan ($85/month):</strong> Five staff users. All Professional features plus multi-clinic management, dental chart, clinic directory, role-based permissions, activity tracking, and priority support. Additional users available at $15/user/month.</li>
+            <li>A 14-day free trial is available for new accounts. No credit card required to start.</li>
+          </ul>
+        </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+        <div class="legal-item">
+          <h2><span class="section-badge">07</span> License Termination</h2>
+          <p>This license and your access to the platform will be terminated if:</p>
+          <ul>
+            <li>You violate any provision of these License &amp; Usage Terms or the Terms &amp; Conditions.</li>
+            <li>Your subscription payment lapses and is not resolved after reasonable notice.</li>
+            <li>The platform is used for unauthorized, illegal, or harmful purposes.</li>
+            <li>Chamaeleo Tech determines that continued access poses a security or compliance risk.</li>
+          </ul>
+          <p>Upon termination, your access to the platform will be revoked. You may request an export of your clinic data within the data retention window before permanent deletion.</p>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">08</span> Updates &amp; Changes</h2>
+          <p>Chamaeleo Tech reserves the right to update, modify, or discontinue any feature, service, or aspect of the PatientHub platform at any time. We will provide reasonable notice for significant changes.</p>
+          <p>License terms may be revised periodically. Continued use of the platform after changes take effect constitutes your acceptance of the revised terms.</p>
+        </div>
+
+        <div class="legal-item contacts-section">
+          <h2><span class="section-badge" style="background:rgba(255,255,255,.25);color:#fff">09</span> Contact &amp; Licensing Inquiries</h2>
+          <p>For any licensing questions, partnership inquiries, or permissions beyond the scope of this license, please contact us:</p>
+          <ul class="contact-list">
+            <li><span>By email:</span> <a href="mailto:support@chamaeleo.tech">support@chamaeleo.tech</a></li>
+            <li><span>By website:</span> <a href="https://patienthub.net">https://patienthub.net</a></li>
+            <li><span>By phone:</span> <a href="tel:+96171762637">+961 71 762 637</a></li>
+            <li><span>Address:</span> Beirut, Lebanon</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================================================================ FOOTER ================================================================ -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <div class="logo">
+          <img src="images/PatientHub-icon.svg" alt="PatientHub" style="height:34px;width:auto">
+          <span class="footer-logo-name">PatientHub</span>
+        </div>
+        <p>Making healthcare management smarter, faster, and more human.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html#about-us">About Us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="license.html">License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/share/1Avv3xpaaw/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/patienthub/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div style="margin-top:20px">
+          <a href="index.html#contact" class="btn btn-primary" style="height:40px;padding:0 20px;font-size:.85rem;border-radius:10px">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright &copy; 2025 PatientHub by Chamaeleo Tech. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="license.html">License</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/96171762637" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const hdr = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+    const mobToggle = document.getElementById('mobToggle');
+    const mobNav    = document.getElementById('mobNav');
+    const mobIcon   = document.getElementById('mobIcon');
+    mobToggle.addEventListener('click', () => {
+      const open = mobNav.classList.toggle('open');
+      mobIcon.className = open ? 'fas fa-times' : 'fas fa-bars';
+    });
+    mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobNav.classList.remove('open');
+      mobIcon.className = 'fas fa-bars';
+    }));
+  </script>
 </body>
-
 </html>
