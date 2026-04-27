@@ -724,13 +724,27 @@
     .delay-300{transition-delay:.3s}.delay-400{transition-delay:.4s}.delay-500{transition-delay:.5s}
 
     /* ============================================================ RESPONSIVE ============================================================ */
+    @media(max-width:1380px){
+      .fc3{display:none}
+    }
     @media(max-width:1024px){
       .pricing-grid{grid-template-columns:repeat(2,1fr)}
       .pricing-card.popular{transform:none}
       .pricing-card.popular:hover{transform:translateY(-8px)}
       .footer-container{grid-template-columns:1fr 1fr}
-      .fcard{display:none}
       .contact-wrapper{grid-template-columns:1fr;gap:40px}
+      /* Float cards reflow below hero text */
+      .hero{flex-direction:column;gap:32px;padding-bottom:60px}
+      .float-cards{
+        position:relative;inset:auto;
+        display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+        pointer-events:auto;z-index:3;
+      }
+      .fcard{
+        position:relative;top:auto;right:auto;bottom:auto;left:auto;
+        animation:none;display:flex;
+      }
+      .fc3,.fc4{display:none}
     }
     @media(max-width:768px){
       html{scroll-padding-top:80px}
