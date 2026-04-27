@@ -55,13 +55,18 @@ img{max-width:100%;display:block}
 }
 .btn-primary{
   background:var(--grad);color:#fff;
-  box-shadow:0 8px 28px rgba(38,123,190,.32);
+  box-shadow:0 2px 8px rgba(38,123,190,.2);
 }
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(38,123,190,.48)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(38,123,190,.3)}
 .btn-outline{
   background:transparent;border:2px solid var(--primary);color:var(--primary);
 }
-.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 3px 10px rgba(38,123,190,.2)}
+.btn-solid{
+  background:var(--primary);color:#fff;
+  box-shadow:0 2px 8px rgba(38,123,190,.2);
+}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(38,123,190,.3)}
 
 /* ============================================================ HEADER ============================================================ */
 header{
