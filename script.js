@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Render Content from data.js ---
 
     // 1. Stats
-    // 1. Stats
     const statsContainer = document.getElementById('stats-container');
     if (statsContainer) {
         data.stats.forEach((item, index) => {
@@ -173,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // 6. Pricing
-    // 6. Pricing
     const pricingGrid = document.getElementById('pricing-grid');
     if (pricingGrid) {
         data.pricing.forEach((plan, index) => {
@@ -250,54 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
         attachFaqListeners();
     }
 
-    // --- Interaction Logic (Mobile Menu, Sticky Header, etc.) ---
-
-    // Mobile Menu Toggle
-    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    if (mobileMenuIcon && mobileNav) {
-        mobileMenuIcon.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-            const icon = mobileMenuIcon.querySelector('i');
-            if (mobileNav.classList.contains('active')) {
-                icon.className = 'fas fa-times'; // Switch to X
-            } else {
-                icon.className = 'fas fa-bars'; // Switch back to bars
-            }
-        });
-    }
-
-    // Active Link Highlighting
-    const desktopLinks = document.querySelectorAll('.desktop-nav a');
-    desktopLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            desktopLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    // Close mobile menu when link clicked
-    const mobileLinks = document.querySelectorAll('.mobile-nav a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            const icon = mobileMenuIcon.querySelector('i');
-            if (icon) icon.className = 'fas fa-bars';
-        });
-    });
-
-    // Sticky Header
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = "0 4px 15px rgba(0,0,0,0.1)";
-        } else {
-            header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)";
-        }
-    });
-
-    // FAQ Interaction Logic (Function to attach listeners)
     // FAQ Interaction Logic (Function to attach listeners)
     function attachFaqListeners() {
         const faqItems = document.querySelectorAll('.faq-item');
@@ -347,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isValid) {
                 const subject = `New Contact Message from ${fullName.value}`;
                 const body = `Name: ${fullName.value}\nEmail: ${email.value}\nPhone: ${phone.value}\nCompany: ${company.value}\n\nDescription:\n${description.value}`;
-                window.location.href = `mailto:support@chamaeleo.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = `mailto:patienthub@googlegroups.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             }
         });
     }
