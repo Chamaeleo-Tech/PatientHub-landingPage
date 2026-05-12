@@ -2,283 +2,1282 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PatientHub - Find Your Doctor</title>
-    <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatientHub</title>
+  <meta name="application-name" content="PatientHub">
+  <meta name="description" content="PatientHub — the all-in-one clinic management platform for appointments, billing, dental charts, WhatsApp, prescriptions, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PatientHub">
+  <meta property="og:title" content="PatientHub">
+  <meta property="og:description" content="The all-in-one clinic management platform for appointments, billing, dental charts, WhatsApp, prescriptions, and more.">
+  <meta property="og:image" content="https://patienthub.net/images/PatientHub-logo-white.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PatientHub">
+  <meta name="twitter:description" content="The all-in-one clinic management platform for appointments, billing, dental charts, WhatsApp, prescriptions, and more.">
+  <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PatientHub",
+    "url": "https://patienthub.net",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "description": "The all-in-one clinic management platform for appointments, billing, dental charts, WhatsApp, prescriptions, and more."
+  }
+  </script>
+
+  <style>
+    /* ============================================================ VARIABLES ============================================================ */
+    :root {
+      --bg:        #f0f5fb;
+      --bg2:       #ffffff;
+      --card:      #ffffff;
+      --border:    rgba(38,123,190,0.14);
+      --primary:   #267BBE;
+      --dark:      #232C70;
+      --mid:       #1864A0;
+      --text:      #1a2045;
+      --muted:     rgba(26,32,69,0.55);
+      --grad:      linear-gradient(135deg,#267BBE,#232C70);
+      --grad-r:    linear-gradient(135deg,#232C70,#267BBE);
+      --grad-alt:  linear-gradient(135deg,#1864A0,#267BBE);
+      --radius:    20px;
+      --ease:      cubic-bezier(0.4,0,0.2,1);
+      --shadow:    0 8px 40px rgba(38,123,190,0.09);
+      --shadow-lg: 0 20px 60px rgba(38,123,190,0.16);
+    }
+
+    /* ============================================================ RESET & BASE ============================================================ */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:hidden}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeSpeed}
+    a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    a{text-decoration:none;color:inherit;transition:all .3s var(--ease)}
+    ul{list-style:none}
+    img{max-width:100%;display:block}
+    .container{width:92%;max-width:1200px;margin:0 auto}
+
+    /* ============================================================ GRADIENT TEXT ============================================================ */
+    .grad-text{
+      background:var(--grad);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      background-size:200%;
+      animation:gradShift 8s ease infinite;
+    }
+    @keyframes gradShift{
+      0%{background-position:0% center}
+      50%{background-position:100% center}
+      100%{background-position:0% center}
+    }
+
+    /* ============================================================ BUTTONS ============================================================ */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:52px;padding:0 32px;border-radius:50px;
+      font-weight:700;font-size:.95rem;cursor:pointer;border:none;
+      transition:all .3s var(--ease);letter-spacing:.02em;position:relative;overflow:hidden;
+    }
+    .btn-primary{
+      background:var(--grad);color:#fff;
+      box-shadow:0 2px 8px rgba(38,123,190,.2);
+      animation:btnPulse 2.5s ease-in-out infinite;
+    }
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 4px 14px rgba(38,123,190,.3)}
+    @keyframes btnPulse{
+      0%,100%{box-shadow:0 2px 7px rgba(38,123,190,.18)}
+      50%{box-shadow:0 3px 12px rgba(38,123,190,.28),0 0 18px rgba(35,44,112,.08)}
+    }
+    .btn-outline{
+      background:transparent;border:2px solid var(--primary);color:var(--primary);
+    }
+    .btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-3px);box-shadow:0 3px 10px rgba(38,123,190,.2)}
+    .btn-solid{
+      background:var(--primary);color:#fff;
+      box-shadow:0 2px 8px rgba(38,123,190,.2);
+    }
+    .btn-solid:hover{transform:translateY(-3px);box-shadow:0 4px 14px rgba(38,123,190,.3)}
+
+    /* ============================================================ CHIP ============================================================ */
+    .chip{
+      display:inline-flex;align-items:center;gap:7px;
+      background:rgba(38,123,190,.1);border:1px solid rgba(38,123,190,.25);
+      color:var(--primary);font-size:.75rem;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;
+      padding:6px 16px;border-radius:50px;margin-bottom:18px;
+    }
+
+    /* ============================================================ SECTION HEAD ============================================================ */
+    .sec-head{text-align:center;margin-bottom:56px}
+    .sec-title{
+      font-family:'Urbanist',sans-serif;
+      font-size:clamp(2rem,4vw,3rem);font-weight:900;
+      line-height:1.12;letter-spacing:-.025em;
+      color:var(--text);margin-bottom:14px;
+    }
+    .sec-sub{font-size:1rem;color:var(--muted);max-width:540px;margin:0 auto;line-height:1.75}
+
+    /* ============================================================ HEADER ============================================================ */
+    header{
+      position:fixed;top:16px;left:16px;right:16px;z-index:1000;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+      border:1px solid rgba(38,123,190,.12);border-radius:20px;
+      padding:14px 28px;transition:all .3s var(--ease);
+    }
+    header.scrolled{background:rgba(255,255,255,.98);box-shadow:0 8px 40px rgba(38,123,190,.14)}
+    .hdr{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:34px;width:auto}
+    .logo-name{
+      font-family:'Urbanist',sans-serif;font-size:1.1rem;font-weight:800;
+      background:var(--grad);-webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .desk-nav{display:flex;gap:4px}
+    .desk-nav a{color:var(--muted);font-size:.875rem;font-weight:500;padding:8px 14px;border-radius:10px}
+    .desk-nav a:hover{color:var(--primary);background:rgba(38,123,190,.08)}
+    .hdr-btns{display:flex;gap:10px;align-items:center}
+    .hdr-btns .btn{height:40px;padding:0 20px;font-size:.85rem}
+    .mob-icon{display:none;font-size:1.3rem;cursor:pointer;color:var(--text);padding:6px}
+    .mob-nav{
+      display:none;position:absolute;top:calc(100% + 12px);left:0;right:0;
+      background:rgba(255,255,255,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+      border:1px solid rgba(38,123,190,.12);border-radius:16px;
+      padding:20px;flex-direction:column;gap:4px;
+    }
+    .mob-nav.open{display:flex}
+    .mob-nav a{color:var(--muted);font-size:.95rem;padding:12px 16px;border-radius:12px;font-weight:500}
+    .mob-nav a:hover{color:var(--primary);background:rgba(38,123,190,.06)}
+    .mob-btns{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+    .mob-btns .btn{width:100%;justify-content:center}
+
+    /* ============================================================ HERO ============================================================ */
+    .hero{
+      position:relative;min-height:100vh;display:flex;
+      align-items:center;justify-content:center;
+      overflow:hidden;padding:140px 20px 120px;
+      background:linear-gradient(145deg,#e4eef9 0%,#eef4fb 40%,#f0f5fb 70%,#eff1fa 100%);
+    }
+    /* Animated radial gradient overlay */
+    .hero::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 25%,rgba(38,123,190,.14) 0%,transparent 65%),
+        radial-gradient(ellipse 55% 50% at 85% 75%,rgba(35,44,112,.09) 0%,transparent 65%),
+        radial-gradient(ellipse 45% 40% at 55% 15%,rgba(24,100,160,.07) 0%,transparent 70%);
+      animation:heroBgPulse 10s ease-in-out infinite alternate;
+    }
+    @keyframes heroBgPulse{
+      0%{opacity:.7;transform:scale(1)}
+      100%{opacity:1;transform:scale(1.04)}
+    }
+    /* Dot grid wallpaper */
+    .hero-dots{
+      position:absolute;inset:0;z-index:0;pointer-events:none;
+      background-image:radial-gradient(circle,rgba(38,123,190,.14) 1.5px,transparent 1.5px);
+      background-size:34px 34px;
+      -webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 90%);
+      mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 90%);
+    }
+
+    /* Blobs */
+    .blob{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+    .blob-1{
+      width:600px;height:600px;top:-120px;left:-160px;
+      background:radial-gradient(circle,rgba(38,123,190,.2) 0%,transparent 70%);
+      animation:blobMorph 14s ease-in-out infinite alternate;
+    }
+    .blob-2{
+      width:500px;height:500px;bottom:-80px;right:-120px;
+      background:radial-gradient(circle,rgba(35,44,112,.13) 0%,transparent 70%);
+      animation:blobMorph 18s ease-in-out infinite alternate;animation-delay:-6s;
+    }
+    .blob-3{
+      width:350px;height:350px;top:40%;left:42%;
+      background:radial-gradient(circle,rgba(24,100,160,.11) 0%,transparent 70%);
+      animation:blobMorph 16s ease-in-out infinite alternate;animation-delay:-9s;
+    }
+    @keyframes blobMorph{
+      0%  {transform:translate(0,0) scale(1);border-radius:50%}
+      25% {transform:translate(30px,-40px) scale(1.08);border-radius:60% 40% 55% 45%/50% 60% 40% 50%}
+      50% {transform:translate(-20px,20px) scale(.95);border-radius:40% 60% 45% 55%/60% 40% 60% 40%}
+      75% {transform:translate(20px,30px) scale(1.05);border-radius:55% 45% 60% 40%/45% 55% 45% 55%}
+      100%{transform:translate(-10px,-20px) scale(1.02);border-radius:50%}
+    }
+
+    /* Floating medical background icons */
+    .med-icons{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+    .med-icon{position:absolute;color:var(--primary);opacity:.09;animation:medFloat 8s ease-in-out infinite}
+    .mi1{top:11%;left:7%;font-size:2.4rem;animation-delay:0s}
+    .mi2{top:18%;right:9%;font-size:1.9rem;animation-delay:-2s}
+    .mi3{top:55%;left:4%;font-size:1.5rem;animation-delay:-4s}
+    .mi4{bottom:22%;left:13%;font-size:2.1rem;animation-delay:-1s}
+    .mi5{bottom:14%;right:7%;font-size:1.7rem;animation-delay:-3s}
+    .mi6{top:34%;right:4%;font-size:2rem;animation-delay:-5s}
+    .mi7{top:68%;right:13%;font-size:1.4rem;animation-delay:-6s}
+    .mi8{top:7%;left:29%;font-size:1.6rem;animation-delay:-7s}
+    .mi9{bottom:32%;right:21%;font-size:1.3rem;animation-delay:-2.5s}
+    .mi10{top:44%;left:19%;font-size:1.2rem;opacity:.06;animation-delay:-3.5s}
+    @keyframes medFloat{
+      0%,100%{transform:translateY(0) rotate(0deg)}
+      25%  {transform:translateY(-22px) rotate(6deg)}
+      50%  {transform:translateY(-10px) rotate(-4deg)}
+      75%  {transform:translateY(-26px) rotate(2deg)}
+    }
+
+    /* Floating feature cards */
+    .float-cards{position:absolute;inset:0;z-index:2;pointer-events:none}
+    .fcard{
+      position:absolute;
+      background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+      border:1px solid rgba(38,123,190,.2);border-radius:16px;
+      padding:13px 18px;display:flex;align-items:center;gap:11px;
+      font-size:.8rem;font-weight:600;color:var(--text);white-space:nowrap;
+      box-shadow:0 8px 30px rgba(38,123,190,.13);
+    }
+    .fcard-icon{
+      width:32px;height:32px;border-radius:9px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:.8rem;color:#fff;flex-shrink:0;
+    }
+    .fc1{top:22%;right:7%;animation:floatY 5s ease-in-out infinite}
+    .fc2{bottom:28%;right:4%;animation:floatY 6s ease-in-out infinite;animation-delay:-2s}
+    .fc3{top:46%;right:16%;animation:floatY 4.5s ease-in-out infinite;animation-delay:-1s}
+    .fc4{top:20%;left:6%;animation:floatY 5.5s ease-in-out infinite;animation-delay:-3.5s}
+    .fc5{bottom:32%;left:4%;animation:floatY 7s ease-in-out infinite;animation-delay:-1.5s}
+    @keyframes floatY{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(.5deg)}}
+
+    /* ECG heartbeat band */
+    .ecg-band{
+      position:absolute;bottom:72px;left:0;right:0;z-index:1;
+      opacity:.15;pointer-events:none;overflow:hidden;height:54px;
+    }
+    .ecg-svg{width:200%;animation:ecgScroll 7s linear infinite}
+    @keyframes ecgScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* Hero content */
+    .hero-content{position:relative;z-index:3;text-align:center;max-width:900px}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(38,123,190,.1);border:1px solid rgba(38,123,190,.28);
+      border-radius:50px;padding:8px 20px;
+      font-size:.78rem;font-weight:700;color:var(--primary);
+      letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;
+      animation:fadeDown .8s var(--ease) both;
+    }
+    .badge-dot{
+      width:6px;height:6px;border-radius:50%;background:var(--primary);
+      animation:dotPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.45)}}
+    .hero-title{
+      font-family:'Urbanist',sans-serif;
+      font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;
+      line-height:1.05;letter-spacing:-.03em;
+      color:var(--text);margin-bottom:24px;
+      animation:fadeUp .8s var(--ease) .1s both;
+    }
+    .hero-sub{
+      font-size:clamp(1rem,2vw,1.15rem);color:var(--muted);
+      max-width:620px;margin:0 auto 40px;line-height:1.8;
+      animation:fadeUp .8s var(--ease) .2s both;
+    }
+    .hero-btns{
+      display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+      animation:fadeUp .8s var(--ease) .3s both;
+    }
+
+    /* Scroll cue */
+    .scroll-cue{
+      position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+      z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;
+      color:var(--muted);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+      animation:fadeIn 1s var(--ease) 1s both;
+    }
+    .scroll-line{
+      width:1px;height:40px;
+      background:linear-gradient(to bottom,var(--primary),transparent);
+      animation:scrollPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollPulse{0%{transform:scaleY(1);opacity:1;transform-origin:top}100%{transform:scaleY(.2);opacity:0;transform-origin:top}}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+    /* ============================================================ TICKER / MARQUEE ============================================================ */
+    .ticker{background:var(--grad);padding:13px 0;overflow:hidden;position:relative}
+    .ticker-track{display:flex;width:max-content;animation:tickerScroll 32s linear infinite}
+    .ticker-item{
+      white-space:nowrap;padding:0 28px;
+      font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);
+      letter-spacing:.05em;text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:9px;
+    }
+    .ticker-item i{font-size:.82rem;opacity:.8}
+    .ticker-sep{color:rgba(255,255,255,.3);padding:0 4px}
+    @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* ============================================================ STATS ============================================================ */
+    .stats-bar{
+      background:var(--bg2);padding:52px 0;
+      border-top:3px solid transparent;
+      background-image:linear-gradient(var(--bg2),var(--bg2)),var(--grad);
+      background-origin:border-box;
+      -webkit-background-clip:padding-box,border-box;
+      background-clip:padding-box,border-box;
+      box-shadow:0 4px 30px rgba(38,123,190,.07);
+    }
+    .stats-container{display:flex;justify-content:space-around;align-items:center;text-align:center}
+    .stat-item{flex:1;position:relative;cursor:default}
+    .stat-item:not(:last-child)::after{
+      content:'';position:absolute;right:0;top:15%;height:70%;
+      width:1px;background:rgba(38,123,190,.1);
+    }
+    .stat-number{
+      font-family:'Urbanist',sans-serif;
+      font-size:clamp(2rem,4vw,3.5rem);font-weight:900;
+      background:var(--grad);-webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1;margin-bottom:6px;transition:all .3s var(--ease);
+    }
+    .stat-item:hover .stat-number{filter:brightness(1.2);transform:scale(1.08)}
+    .stat-item p{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+    /* ============================================================ WAVE DIVIDERS ============================================================ */
+    .wave{line-height:0;overflow:hidden;display:block}
+    .wave svg{display:block;width:100%}
+
+    /* ============================================================ MISSION / VISION ============================================================ */
+    .mission-vision{padding:90px 0 80px;background:var(--bg2);position:relative;overflow:hidden}
+    /* Rotating medical cross watermark */
+    .mission-vision::before{
+      content:'+';position:absolute;
+      font-size:38vw;font-weight:900;color:var(--primary);opacity:.025;
+      top:50%;left:50%;transform:translate(-50%,-50%);
+      pointer-events:none;line-height:1;font-family:'Urbanist',sans-serif;
+      animation:rotateSlow 70s linear infinite;
+    }
+    @keyframes rotateSlow{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+    .mv-container{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto}
+    .mv-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:44px;text-align:center;
+      position:relative;overflow:hidden;cursor:default;
+      transition:all .4s var(--ease);box-shadow:var(--shadow);isolation:isolate;
+    }
+    .mv-card::before{
+      content:'';position:absolute;inset:0;
+      background:var(--grad);opacity:0;transition:opacity .4s ease;z-index:0;
+    }
+    .mv-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);border-color:rgba(38,123,190,.3)}
+    .mv-card:hover::before{opacity:1}
+    .mv-card>*{position:relative;z-index:1}
+    .mv-card h3{
+      font-family:'Urbanist',sans-serif;font-size:1.4rem;font-weight:800;
+      letter-spacing:.04em;text-transform:uppercase;
+      background:var(--grad);-webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;background-clip:text;
+      margin-bottom:16px;transition:all .3s ease;
+    }
+    .mv-card:hover h3{background:#fff;-webkit-background-clip:text;background-clip:text}
+    .mv-card p{font-size:.95rem;color:var(--muted);line-height:1.8;transition:color .3s ease}
+    .mv-card:hover p{color:rgba(255,255,255,.85)}
+
+    /* ============================================================ SERVICES ============================================================ */
+    .services{padding:100px 0;background:var(--bg);position:relative;overflow:hidden}
+    /* Dot grid wallpaper */
+    .services::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background-image:radial-gradient(circle,rgba(38,123,190,.12) 1.5px,transparent 1.5px);
+      background-size:30px 30px;
+    }
+    .services>.container{position:relative;z-index:1}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .service-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:30px 26px;
+      text-align:left;position:relative;overflow:hidden;
+      cursor:default;transition:all .35s var(--ease);
+      display:flex;flex-direction:column;gap:12px;
+      box-shadow:var(--shadow);isolation:isolate;
+    }
+    .service-card::after{
+      content:'';position:absolute;bottom:0;right:0;
+      width:180px;height:180px;border-radius:50%;
+      opacity:0;filter:blur(55px);z-index:-1;
+      transition:opacity .4s ease;pointer-events:none;
+    }
+    .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(38,123,190,.28)}
+    .service-card:hover::after{opacity:.35}
+    .border-purple.service-card::after{background:rgba(38,123,190,.5)}
+    .border-pink.service-card::after{background:rgba(234,88,12,.5)}
+    .border-green.service-card::after{background:rgba(22,163,74,.5)}
+    .border-blue.service-card::after{background:rgba(8,145,178,.5)}
+    .border-yellow.service-card::after{background:rgba(180,83,9,.45)}
+    .service-card .icon{
+      width:54px;height:54px;border-radius:15px;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;margin:0;
+    }
+    .service-card .icon img{width:26px;height:26px;filter:brightness(0) invert(1)}
+    .service-card .icon i{font-size:1.35rem;color:#fff}
+    .f-purple .icon{background:linear-gradient(135deg,#267BBE,#232C70);box-shadow:0 4px 14px rgba(38,123,190,.3)}
+    .f-pink   .icon{background:linear-gradient(135deg,#ea580c,#f97316);box-shadow:0 4px 14px rgba(234,88,12,.28)}
+    .f-green  .icon{background:linear-gradient(135deg,#16a34a,#22c55e);box-shadow:0 4px 14px rgba(22,163,74,.28)}
+    .f-blue   .icon{background:linear-gradient(135deg,#0891b2,#06b6d4);box-shadow:0 4px 14px rgba(8,145,178,.28)}
+    .f-yellow .icon{background:linear-gradient(135deg,#b45309,#f59e0b);box-shadow:0 4px 14px rgba(180,83,9,.25)}
+    .service-card>div:not(.icon):not(.ribbon){font-size:1rem;font-weight:700;color:var(--text);line-height:1.3}
+    .service-card>p{font-size:.875rem;color:var(--muted);line-height:1.65;margin:0}
+    .ribbon{position:absolute;top:12px;right:12px;z-index:5}
+    .ribbon span{
+      display:block;background:linear-gradient(135deg,#ef4444,#dc2626);
+      color:#fff;font-size:.68rem;font-weight:700;
+      padding:4px 12px;border-radius:6px;letter-spacing:.04em;
+      box-shadow:0 4px 12px rgba(239,68,68,.28);
+    }
+
+    /* ============================================================ FEATURES ============================================================ */
+    .features{padding:100px 0;background:var(--bg2);position:relative;overflow:hidden}
+    /* Diagonal stripe wallpaper */
+    .features::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background-image:repeating-linear-gradient(
+        -45deg,
+        rgba(38,123,190,.04) 0px,rgba(38,123,190,.04) 1px,
+        transparent 1px,transparent 26px
+      );
+    }
+    .features>.container{position:relative;z-index:1}
+    .features-list{display:flex;flex-direction:column;gap:4px;max-width:1000px;margin:0 auto}
+    .feature-item{
+      background:transparent;border:1px solid transparent;
+      border-bottom-color:rgba(38,123,190,.08);border-radius:16px;
+      padding:26px 32px;display:flex;align-items:center;gap:40px;
+      cursor:pointer;transition:all .35s var(--ease);position:relative;overflow:hidden;
+    }
+    .feature-item::before{
+      content:'';position:absolute;inset:0;
+      background:var(--grad);opacity:0;
+      transition:opacity .35s ease;border-radius:16px;z-index:0;
+    }
+    .feature-item:hover{border-color:transparent;transform:scale(1.014);box-shadow:var(--shadow-lg)}
+    .feature-item:hover::before{opacity:1}
+    .feature-item>*{position:relative;z-index:1}
+    .feature-number{
+      font-family:'Urbanist',sans-serif;font-size:2.4rem;font-weight:900;
+      color:var(--primary);
+      min-width:68px;line-height:1;transition:all .3s ease;flex-shrink:0;
+    }
+    .feature-item:hover .feature-number{color:#fff}
+    .feature-content{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:center;width:100%}
+    .feature-content h3{font-family:'Urbanist',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.3;transition:color .3s ease}
+    .feature-item:hover .feature-content h3{color:#fff}
+    .feature-content p{font-size:.875rem;color:var(--muted);line-height:1.65;margin:0;transition:color .3s ease}
+    .feature-item:hover .feature-content p{color:rgba(255,255,255,.82)}
+
+
+    /* ============================================================ PRICING ============================================================ */
+    .pricing{padding:100px 0;background:var(--bg);position:relative;overflow:hidden}
+    /* Pulsing ring watermark */
+    .ring{
+      position:absolute;top:50%;left:50%;border-radius:50%;
+      border:1px solid rgba(38,123,190,.08);pointer-events:none;
+      transform:translate(-50%,-50%);animation:pulseRing 5s ease-in-out infinite;
+    }
+    .ring-1{width:900px;height:900px;animation-delay:0s}
+    .ring-2{width:620px;height:620px;animation-delay:-1.6s}
+    .ring-3{width:380px;height:380px;animation-delay:-3.2s;border-color:rgba(38,123,190,.14)}
+    @keyframes pulseRing{
+      0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}
+      50%{transform:translate(-50%,-50%) scale(1.05);opacity:1}
+    }
+    .pricing>.container{position:relative;z-index:1}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+    .pricing-card::before,.pricing-card::after,
+    .pricing-card-left::before,.pricing-card-right::before{display:none!important}
+    .pricing-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:36px 28px;
+      display:flex;flex-direction:column;position:relative;
+      transition:all .35s var(--ease);box-shadow:var(--shadow);
+    }
+    .pricing-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(38,123,190,.3)}
+    .pricing-card.popular{
+      background:linear-gradient(145deg,rgba(38,123,190,.06),rgba(35,44,112,.05));
+      border:2px solid rgba(38,123,190,.38);transform:scale(1.04);
+      box-shadow:0 0 60px rgba(38,123,190,.16);
+    }
+    .pricing-card.popular:hover{transform:scale(1.04) translateY(-8px)}
+    .popular-badge{
+      position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+      background:var(--grad);color:#fff;
+      padding:6px 22px;border-radius:50px;
+      font-size:.73rem;font-weight:700;letter-spacing:.04em;
+      white-space:nowrap;box-shadow:0 8px 24px rgba(38,123,190,.38);
+      display:flex;align-items:center;gap:6px;
+    }
+    .popular-badge i{color:#fbbf24}
+    .pricing-card h3{font-family:'Urbanist',sans-serif;font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:8px}
+    .pricing-card .price{
+      font-family:'Urbanist',sans-serif;font-size:2.9rem;font-weight:900;
+      background:var(--grad);-webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1;margin-bottom:6px;display:flex;align-items:baseline;gap:4px;
+    }
+    .pricing-card .price span.month{font-size:.88rem;font-weight:500;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+    .card-desc{font-size:.8rem;color:var(--muted);margin-bottom:22px;line-height:1.5}
+    .pricing-card ul{flex:1;margin-bottom:26px}
+    .pricing-card ul li{
+      font-size:.875rem;color:var(--muted);
+      padding:8px 0;border-bottom:1px solid rgba(38,123,190,.06);
+      display:flex;align-items:center;gap:10px;
+    }
+    .pricing-card ul li:last-child{border-bottom:none}
+    .pricing-card ul li i{color:var(--primary);font-size:.82rem;flex-shrink:0}
+    .pricing-card .btn{width:100%;border-radius:14px;height:48px;font-size:.9rem}
+    .pricing-card .btn-outline{border-color:rgba(38,123,190,.35);color:var(--primary)}
+    .pricing-card .btn-outline:hover{border-color:var(--primary);background:var(--primary);color:#fff}
+
+    /* ============================================================ TESTIMONIALS ============================================================ */
+    .testimonials{padding:100px 0;background:var(--bg2);position:relative;overflow:hidden}
+    .testimonials::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background:
+        radial-gradient(ellipse 55% 70% at 5% 50%,rgba(38,123,190,.06) 0%,transparent 70%),
+        radial-gradient(ellipse 55% 70% at 95% 50%,rgba(35,44,112,.05) 0%,transparent 70%);
+    }
+    .testimonials>.container{position:relative;z-index:1}
+    .testimonials-wrapper{display:flex;flex-direction:column;align-items:center;gap:36px}
+    .testimonial-avatars{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+    .testimonial-avatars img{
+      width:50px;height:50px;border-radius:50%;
+      border:3px solid transparent;cursor:pointer;
+      transition:all .35s var(--ease);opacity:.5;filter:grayscale(.6);object-fit:cover;
+    }
+    .testimonial-avatars img.active{
+      width:72px;height:72px;opacity:1;filter:none;
+      border-color:var(--primary);box-shadow:0 0 0 4px rgba(38,123,190,.18);
+    }
+    .testimonial-avatars img.nav-avatar:hover{opacity:.8;filter:grayscale(.2)}
+    .testimonial-card{
+      max-width:680px;text-align:center;
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:48px;box-shadow:var(--shadow-lg);
+    }
+    .testimonial-card h4{font-family:'Urbanist',sans-serif;font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:4px}
+    .testimonial-card .role{font-size:.85rem;color:var(--primary);font-weight:600;display:block;margin-bottom:20px}
+    .testimonial-card p{font-size:1rem;color:var(--muted);line-height:1.8;font-style:italic}
+    .testimonial-controls{display:flex;gap:12px}
+    .t-btn{
+      width:44px;height:44px;border-radius:50%;
+      border:1.5px solid var(--border);background:var(--card);
+      color:var(--primary);font-size:.9rem;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      transition:all .3s var(--ease);box-shadow:var(--shadow);
+    }
+    .t-btn:hover{background:var(--grad);color:#fff;border-color:transparent;transform:scale(1.1)}
+
+    /* ============================================================ FAQ ============================================================ */
+    .faq{padding:100px 0;background:var(--bg);position:relative;overflow:hidden}
+    .faq::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background-image:radial-gradient(circle,rgba(38,123,190,.09) 1.5px,transparent 1.5px);
+      background-size:28px 28px;
+    }
+    .faq>.container{position:relative;z-index:1}
+    .faq-grid{display:flex;gap:20px;align-items:flex-start}
+    .faq-column{flex:1;display:flex;flex-direction:column;gap:12px}
+    .faq-item{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:16px;cursor:pointer;overflow:hidden;
+      transition:all .3s var(--ease);box-shadow:var(--shadow);
+    }
+    .faq-item:hover{border-color:rgba(38,123,190,.35);box-shadow:var(--shadow-lg)}
+    .faq-question{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 22px;font-weight:600;font-size:.9rem;color:var(--text);gap:14px;
+    }
+    .faq-question i{color:var(--primary);flex-shrink:0;transition:all .3s ease;font-size:.82rem}
+    .faq-item.faq-expanded{background:var(--grad);border-color:transparent}
+    .faq-item.faq-expanded .faq-question{color:#fff}
+    .faq-item.faq-expanded .faq-question i{color:#fff;transform:rotate(45deg)}
+    .faq-answer{
+      max-height:0;overflow:hidden;opacity:0;
+      padding:0 22px;font-size:.875rem;color:var(--muted);line-height:1.7;
+      transition:all .4s ease;
+    }
+    .faq-item.faq-expanded .faq-answer{max-height:300px;opacity:1;padding:0 22px 18px;color:rgba(255,255,255,.85)}
+
+    /* ============================================================ CONTACT ============================================================ */
+    .contact{padding:100px 0;background:var(--bg2);position:relative;overflow:hidden}
+    .contact::before{
+      content:'';position:absolute;top:-200px;right:-200px;
+      width:600px;height:600px;border-radius:50%;
+      background:radial-gradient(circle,rgba(38,123,190,.08) 0%,transparent 70%);
+      pointer-events:none;animation:blobMorph 20s ease-in-out infinite;
+    }
+    .contact::after{
+      content:'';position:absolute;bottom:-150px;left:-150px;
+      width:500px;height:500px;border-radius:50%;
+      background:radial-gradient(circle,rgba(35,44,112,.06) 0%,transparent 70%);
+      pointer-events:none;animation:blobMorph 25s ease-in-out infinite reverse;
+    }
+    .contact>.container{position:relative;z-index:1}
+    .contact-wrapper{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+    .contact-text h3{font-family:'Urbanist',sans-serif;font-size:2rem;font-weight:800;color:var(--text);margin-bottom:12px}
+    .contact-desc{font-size:1rem;color:var(--muted);margin-bottom:38px;line-height:1.7}
+    .contact-details{display:flex;flex-direction:column;gap:22px}
+    .info-item{display:flex;align-items:center;gap:14px}
+    .icon-circle{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .info-item:nth-child(1) .icon-circle{background:rgba(239,68,68,.1);color:#ef4444}
+    .info-item:nth-child(2) .icon-circle{background:rgba(16,185,129,.1);color:#10b981}
+    .info-item:nth-child(3) .icon-circle{background:rgba(38,123,190,.1);color:var(--primary)}
+    .info-item div{display:flex;flex-direction:column}
+    .info-item h5{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:2px}
+    .info-item p{font-size:.82rem;color:var(--muted);margin:0}
+    .contact-form-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:40px;box-shadow:var(--shadow-lg);
+    }
+    .contact-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .contact-form .form-group{display:flex;flex-direction:column;margin-bottom:16px}
+    .contact-form label{font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:7px;letter-spacing:.05em;text-transform:uppercase}
+    .contact-form input,.contact-form textarea{
+      background:var(--bg);border:1.5px solid rgba(38,123,190,.15);
+      border-radius:12px;padding:14px 16px;
+      color:var(--text);font-family:inherit;font-size:.9rem;
+      outline:none;width:100%;transition:all .3s var(--ease);
+    }
+    .contact-form input:focus,.contact-form textarea:focus{
+      border-color:var(--primary);background:#fff;
+      box-shadow:0 0 0 3px rgba(38,123,190,.1);
+    }
+    .contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(26,32,69,.28)}
+    .contact-form textarea{resize:vertical;min-height:110px}
+    .required{color:#ef4444}
+    .error-msg{color:#ef4444;font-size:.75rem;margin-top:4px;display:none}
+    .input-error{border-color:#ef4444!important}
+    .form-action{text-align:right}
+    .form-action .btn{height:48px;padding:0 28px;font-size:.9rem;border-radius:12px}
+
+    /* ============================================================ FOOTER ============================================================ */
+    footer{
+      background:var(--grad);border-radius:20px;
+      margin:0 16px 16px;padding:56px 0 28px;
+      position:relative;overflow:hidden;
+    }
+    /* Dot grid texture */
+    footer::before{
+      content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+      background-image:radial-gradient(circle,rgba(255,255,255,.07) 1.5px,transparent 1.5px);
+      background-size:28px 28px;
+    }
+    /* Ambient glow top-center */
+    footer::after{
+      content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+      width:700px;height:340px;border-radius:50%;
+      background:radial-gradient(ellipse,rgba(255,255,255,.1) 0%,transparent 70%);
+      pointer-events:none;z-index:0;
+    }
+    footer .container{position:relative;z-index:1}
+    .footer-container{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:40px;align-items:start}
+    .footer-logo-name{font-family:'Urbanist',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-left:10px}
+    .footer-col p{color:rgba(255,255,255,.68);font-size:.875rem;line-height:1.75;margin-top:14px}
+    .footer-col h4{
+      font-family:'Urbanist',sans-serif;font-size:.72rem;font-weight:700;
+      letter-spacing:.12em;text-transform:uppercase;
+      color:rgba(255,255,255,.45);margin-bottom:18px;
+    }
+    .footer-col ul li{margin-bottom:10px}
+    .footer-col ul li a{
+      color:rgba(255,255,255,.68);font-size:.875rem;display:inline-flex;align-items:center;
+      gap:6px;transition:all .3s var(--ease);
+    }
+    .footer-col ul li a::before{
+      content:'';width:0;height:1px;background:#fff;
+      transition:width .3s var(--ease);flex-shrink:0;
+    }
+    .footer-col ul li a:hover{color:#fff;transform:translateX(6px)}
+    .footer-col ul li a:hover::before{width:8px}
+    .social-icons{display:flex;gap:10px}
+    .social-icons a{
+      width:40px;height:40px;border-radius:12px;
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.85);display:flex;align-items:center;
+      justify-content:center;font-size:.95rem;transition:all .3s var(--ease);
+    }
+    .social-icons a:hover{background:#fff;border-color:transparent;color:var(--primary);transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+    .footer-container .footer-col:nth-child(4){display:flex;flex-direction:column;align-items:flex-start}
+    /* Footer CTA button — white on gradient bg */
+    footer .btn-primary{
+      background:#fff;color:var(--primary);
+      box-shadow:0 2px 10px rgba(0,0,0,.12);
+      animation:none;
+    }
+    footer .btn-primary:hover{background:rgba(255,255,255,.92);box-shadow:0 4px 16px rgba(0,0,0,.18);transform:translateY(-3px)}
+    .copyright{
+      border-top:1px solid rgba(255,255,255,.12);padding-top:22px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .copyright p{color:rgba(255,255,255,.5);font-size:.8rem}
+    .legal-links{display:flex;gap:18px;flex-wrap:wrap}
+    .legal-links a{color:rgba(255,255,255,.5);font-size:.8rem;transition:all .3s var(--ease)}
+    .legal-links a:hover{color:#fff}
+
+    /* ============================================================ WHATSAPP FLOAT ============================================================ */
+    .whatsapp-float{
+      position:fixed;width:56px;height:56px;bottom:24px;right:24px;
+      background:#25d366;color:#fff;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.6rem;box-shadow:0 8px 24px rgba(37,211,102,.4);
+      z-index:999;transition:all .3s var(--ease);
+    }
+    .whatsapp-float:hover{transform:translateY(-4px) scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.55);color:#fff}
+
+    /* ============================================================ REVEAL ANIMATIONS ============================================================ */
+    .reveal{opacity:0;transform:translateY(40px);visibility:hidden;transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .reveal.active{opacity:1;transform:translateY(0);visibility:visible}
+    .reveal-left{opacity:0;transform:translateX(-50px);visibility:hidden;transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .reveal-left.active{opacity:1;transform:translateX(0);visibility:visible}
+    .reveal-right{opacity:0;transform:translateX(50px);visibility:hidden;transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .reveal-right.active{opacity:1;transform:translateX(0);visibility:visible}
+    .delay-100{transition-delay:.1s}.delay-200{transition-delay:.2s}
+    .delay-300{transition-delay:.3s}.delay-400{transition-delay:.4s}.delay-500{transition-delay:.5s}
+
+    /* ============================================================ RESPONSIVE ============================================================ */
+    @media(max-width:1380px){
+      .fc3{display:none}
+    }
+    @media(max-width:1024px){
+      .pricing-grid{grid-template-columns:repeat(2,1fr)}
+      .pricing-card.popular{transform:none}
+      .pricing-card.popular:hover{transform:translateY(-8px)}
+      .footer-container{grid-template-columns:1fr 1fr}
+      .contact-wrapper{grid-template-columns:1fr;gap:40px}
+      /* Float cards reflow below hero text */
+      .hero{flex-direction:column;gap:32px;padding-bottom:60px}
+      .float-cards{
+        position:relative;inset:auto;
+        display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+        pointer-events:auto;z-index:3;
+      }
+      .fcard{
+        position:relative;top:auto;right:auto;bottom:auto;left:auto;
+        animation:none;display:flex;
+      }
+      .fc3,.fc4{display:none}
+    }
+    @media(max-width:768px){
+      html{scroll-padding-top:80px}
+      header{top:10px;left:10px;right:10px;padding:12px 18px}
+      .desk-nav,.hdr-btns{display:none}
+      .mob-icon{display:flex}
+      .logo-name{font-size:1rem}
+      .hero{padding:120px 20px 80px}
+      .fcard{display:none}
+      .scroll-cue{display:none}
+      .ecg-band{display:none}
+      .stats-container{flex-direction:row;gap:0}
+      .stat-item div{font-size:1.8rem}
+      .mv-container{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:1fr}
+      .feature-item{padding:20px;gap:18px}
+      .feature-content{grid-template-columns:1fr;gap:5px}
+      .feature-number{font-size:1.8rem;min-width:auto}
+      .pricing-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+      .faq-grid{flex-direction:column}
+      footer{margin:0 10px 10px;border-radius:16px}
+      .footer-container{grid-template-columns:1fr;text-align:center}
+      .footer-container .footer-col:nth-child(4){align-items:center}
+      .social-icons{justify-content:center}
+      .footer-col ul li a:hover{transform:none}
+      .copyright{flex-direction:column;align-items:center;text-align:center}
+      .legal-links{gap:12px;justify-content:center}
+      .contact-form .form-row{grid-template-columns:1fr}
+      .contact-form-card{padding:24px}
+      .contact-wrapper{gap:30px}
+      .ticker-track{animation-duration:20s}
+    }
+    @media(max-width:480px){
+      .hero-title{font-size:2.3rem}
+      .hero-btns{flex-direction:column;align-items:center}
+      .hero-btns .btn{width:100%;max-width:300px}
+      .sec-title{font-size:1.85rem}
+    }
+
+    /* ============================================================ GPU COMPOSITING HINTS ============================================================ */
+    .blob,.ticker-track,.ecg-svg{will-change:transform}
+
+    /* ============================================================ REDUCED MOTION (accessibility + low-power) ============================================================ */
+    @media(prefers-reduced-motion:reduce){
+      .blob,.med-icon,.fcard,.ecg-svg,.ticker-track,
+      .hero::before,.badge-dot,.grad-text,.btn-primary,
+      .scroll-line,.ring,.mission-vision::before{animation:none!important}
+    }
+
+    /* ============================================================ IN-APP BROWSER (Instagram/Facebook) ============================================================ */
+    /* Detected via JS: adds .inapp to <html>. Strips expensive GPU effects. */
+    html.inapp .blob{animation:none!important}
+    html.inapp .med-icons{display:none!important}
+    html.inapp .ecg-band{display:none!important}
+    html.inapp .scroll-cue{display:none!important}
+    html.inapp .float-cards{display:none!important}
+    html.inapp .ring{animation:none!important}
+    html.inapp .mission-vision::before{animation:none!important}
+    html.inapp .grad-text{animation:none!important;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+    html.inapp .badge-dot{animation:none!important}
+    html.inapp .btn-primary{animation:none!important}
+    html.inapp .hero::before{animation:none!important}
+    html.inapp .ticker-track{animation-duration:50s}
+    /* Replace costly backdrop-filter with solid backgrounds */
+    html.inapp header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(255,255,255,.97)!important}
+    html.inapp .mob-nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="images/PatientHub-icon.svg" alt="PatientHub Logo">
-            </div>
-            <nav class="desktop-nav">
-                <a href="#about-us">About Us</a>
-                <a href="#services">Services</a>
-                <a href="#features">Features</a>
-                <!-- <a href="#testimonials">Testimonials</a> -->
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-            </nav>
-            <div class="header-buttons">
-                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
-                <a href="#contact" class="btn btn-primary">Contact Us</a>
-            </div>
-            <div class="mobile-menu-icon">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-        <!-- Mobile Nav Menu (Hidden by default) -->
-        <div class="mobile-nav">
-            <a href="#about-us">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#features">Features</a>
-            <!-- <a href="#testimonials">Testimonials</a> -->
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-            <div class="mobile-buttons">
-                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
-                <a href="#contact" class="btn btn-primary">Contact Us</a>
-            </div>
-        </div>
-    </header>
+  <!-- ================================================================ HEADER ================================================================ -->
+  <header id="mainHeader">
+    <div class="hdr">
+      <a href="#home" class="logo">
+        <img src="images/PatientHub-icon.svg" alt="PatientHub" decoding="async">
+        <span class="logo-name">PatientHub</span>
+      </a>
+      <nav class="desk-nav">
+        <a href="#about-us">About</a>
+        <a href="#services">Services</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="hdr-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+      <div class="mob-icon" id="mobToggle">
+        <i class="fas fa-bars" id="mobIcon"></i>
+      </div>
+    </div>
+    <div class="mob-nav" id="mobNav">
+      <a href="#about-us">About</a>
+      <a href="#services">Services</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <div class="mob-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="heartbeat-background">
-            <div class="hb-track">
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-            </div>
-        </div>
-        <div class="container hero-content">
-            <h1 class="hero-title">Find Your Patient & Make An Appointment</h1>
-            <p>A smarter way for doctors & clinics to manage patients, appointments, and daily workflow.</p>
+  <!-- ================================================================ HERO ================================================================ -->
+  <section class="hero" id="home">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="hero-dots"></div>
 
-            <a href="#contact" class="btn btn-primary">Start Now</a>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <div class="stats-bar">
-        <div class="container stats-container" id="stats-container">
-            <!-- Dynamic Content -->
-        </div>
+    <!-- Floating medical background icons -->
+    <div class="med-icons" aria-hidden="true">
+      <i class="fas fa-heartbeat med-icon mi1"></i>
+      <i class="fas fa-stethoscope med-icon mi2"></i>
+      <i class="fas fa-pills med-icon mi3"></i>
+      <i class="fas fa-tooth med-icon mi4"></i>
+      <i class="fas fa-calendar-alt med-icon mi5"></i>
+      <i class="fas fa-notes-medical med-icon mi6"></i>
+      <i class="fas fa-user-md med-icon mi7"></i>
+      <i class="fas fa-hospital med-icon mi8"></i>
+      <i class="fas fa-prescription-bottle-alt med-icon mi9"></i>
+      <i class="fas fa-syringe med-icon mi10"></i>
     </div>
 
-    <!-- Mission & Vision -->
-    <section class="mission-vision" id="about-us">
-        <div class="container mv-container" id="mv-container">
-            <!-- Dynamic Content -->
+    <!-- Floating glassmorphism feature cards -->
+    <div class="float-cards" aria-hidden="true">
+      <div class="fcard fc1">
+        <div class="fcard-icon" style="background:linear-gradient(135deg,#267BBE,#232C70)"><i class="fas fa-calendar-check"></i></div>
+        <span>124 Appointments Today</span>
+      </div>
+      <div class="fcard fc2">
+        <div class="fcard-icon" style="background:linear-gradient(135deg,#1864A0,#267BBE)"><i class="fas fa-users"></i></div>
+        <span>2,340 Active Patients</span>
+      </div>
+      <div class="fcard fc3">
+        <div class="fcard-icon" style="background:linear-gradient(135deg,#267BBE,#1864A0)"><i class="fas fa-chart-line"></i></div>
+        <span>Revenue +32% ↑</span>
+      </div>
+      <div class="fcard fc4">
+        <div class="fcard-icon" style="background:linear-gradient(135deg,#232C70,#267BBE)"><i class="fas fa-tooth"></i></div>
+        <span>Dental Chart Ready</span>
+      </div>
+      <div class="fcard fc5">
+        <div class="fcard-icon" style="background:linear-gradient(135deg,#25d366,#1da851)"><i class="fab fa-whatsapp"></i></div>
+        <span>WhatsApp Connected</span>
+      </div>
+    </div>
+
+    <!-- Animated ECG heartbeat line -->
+    <div class="ecg-band" aria-hidden="true">
+      <svg class="ecg-svg" viewBox="0 0 2800 54" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <polyline points="0,27 100,27 120,6 138,48 156,6 174,48 192,27 280,27 300,12 320,42 340,12 360,42 380,27 460,27 480,6 498,48 516,6 534,48 552,27 640,27 660,12 680,42 700,12 720,42 740,27 820,27 840,6 858,48 876,6 894,48 912,27 1000,27 1020,12 1040,42 1060,12 1080,42 1100,27 1180,27 1200,6 1218,48 1236,6 1254,48 1272,27 1360,27 1380,12 1400,42 1420,12 1440,42 1460,27 1540,27 1560,6 1578,48 1596,6 1614,48 1632,27 1720,27 1740,12 1760,42 1780,12 1800,42 1820,27 1900,27 1920,6 1938,48 1956,6 1974,48 1992,27 2080,27 2100,12 2120,42 2140,12 2160,42 2180,27 2260,27 2280,6 2298,48 2316,6 2334,48 2352,27 2440,27 2460,12 2480,42 2500,12 2520,42 2540,27 2620,27 2640,6 2658,48 2676,6 2694,48 2712,27 2800,27"
+          stroke="rgba(38,123,190,0.75)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Main content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Clinic Management Platform
+      </div>
+      <h1 class="hero-title">
+        <span class="grad-text">PatientHub</span> — The Smarter Way<br>to Run Your Clinic
+      </h1>
+      <p class="hero-sub">
+        PatientHub brings appointments, billing, dental charts, WhatsApp, prescriptions, and more
+        into one powerful platform — built for modern healthcare providers.
+      </p>
+      <div class="hero-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-primary">
+          <i class="fas fa-arrow-right" style="margin-right:8px;font-size:.82rem"></i>
+          Get Started
+        </a>
+        <a href="#services" class="btn btn-solid">Explore Features</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ================================================================ TICKER ================================================================ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><i class="fas fa-calendar-check"></i> Appointment Scheduling</span>
+      <span class="ticker-item"><i class="fas fa-user-injured"></i> Patient Management</span>
+      <span class="ticker-item"><i class="fas fa-file-invoice-dollar"></i> Billing &amp; Invoicing</span>
+      <span class="ticker-item"><i class="fas fa-tooth"></i> Dental Charts</span>
+      <span class="ticker-item"><i class="fab fa-whatsapp"></i> WhatsApp Integration</span>
+      <span class="ticker-item"><i class="fas fa-prescription"></i> Digital Prescriptions</span>
+      <span class="ticker-item"><i class="fas fa-calendar-alt"></i> Google Calendar Sync</span>
+      <span class="ticker-item"><i class="fas fa-user-shield"></i> Role-Based Access</span>
+      <span class="ticker-item"><i class="fas fa-chart-pie"></i> Financial Analytics</span>
+      <span class="ticker-item"><i class="fas fa-mobile-alt"></i> PWA Support</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item"><i class="fas fa-calendar-check"></i> Appointment Scheduling</span>
+      <span class="ticker-item"><i class="fas fa-user-injured"></i> Patient Management</span>
+      <span class="ticker-item"><i class="fas fa-file-invoice-dollar"></i> Billing &amp; Invoicing</span>
+      <span class="ticker-item"><i class="fas fa-tooth"></i> Dental Charts</span>
+      <span class="ticker-item"><i class="fab fa-whatsapp"></i> WhatsApp Integration</span>
+      <span class="ticker-item"><i class="fas fa-prescription"></i> Digital Prescriptions</span>
+      <span class="ticker-item"><i class="fas fa-calendar-alt"></i> Google Calendar Sync</span>
+      <span class="ticker-item"><i class="fas fa-user-shield"></i> Role-Based Access</span>
+      <span class="ticker-item"><i class="fas fa-chart-pie"></i> Financial Analytics</span>
+      <span class="ticker-item"><i class="fas fa-mobile-alt"></i> PWA Support</span>
+    </div>
+  </div>
+
+  <!-- ================================================================ STATS ================================================================ -->
+  <div class="stats-bar">
+    <div class="container stats-container" id="stats-container"></div>
+  </div>
+
+  <!-- Wave: white → light -->
+  <div class="wave" style="background:#ffffff">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f0f5fb"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ ABOUT ================================================================ -->
+  <section class="mission-vision" id="about-us">
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-heart" style="font-size:.68rem"></i> Our Purpose</div>
+        <h2 class="sec-title">Built for <span class="grad-text">Healthcare</span></h2>
+        <p class="sec-sub">We believe managing a clinic should be as effortless as caring for your patients.</p>
+      </div>
+      <div class="mv-container" id="mv-container"></div>
+    </div>
+  </section>
+
+  <!-- Wave: white → light -->
+  <div class="wave" style="background:#ffffff">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,10 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#f0f5fb"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ SERVICES ================================================================ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-layer-group" style="font-size:.68rem"></i> What We Offer</div>
+        <h2 class="sec-title">Everything Your <span class="grad-text">Clinic Needs</span></h2>
+        <p class="sec-sub">A unified platform replacing scattered tools and paper records — purpose-built for healthcare providers.</p>
+      </div>
+      <div class="services-grid" id="services-grid"></div>
+    </div>
+  </section>
+
+  <!-- Wave: light → white -->
+  <div class="wave" style="background:#f0f5fb">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ FEATURES ================================================================ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-star" style="font-size:.68rem"></i> Key Features</div>
+        <h2 class="sec-title">Built to <span class="grad-text">Scale With You</span></h2>
+        <p class="sec-sub">Powerful capabilities that grow with your practice — from solo doctors to multi-clinic organizations.</p>
+      </div>
+      <div class="features-list" id="features-list"></div>
+    </div>
+  </section>
+
+  <!-- Wave: white → light -->
+  <div class="wave" style="background:#ffffff">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,20 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#f0f5fb"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ PRICING ================================================================ -->
+  <section class="pricing" id="pricing">
+    <!-- Decorative pulsing rings -->
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-tag" style="font-size:.68rem"></i> Pricing</div>
+        <h2 class="sec-title">Simple, <span class="grad-text">Transparent</span> Pricing</h2>
+        <p class="sec-sub">Start with a 14-day free trial. No credit card required.</p>
+      </div>
+      <div class="pricing-grid" id="pricing-grid"></div>
+    </div>
+  </section>
+
+  <!-- Wave: light → white -->
+  <div class="wave" style="background:#f0f5fb">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ TESTIMONIALS ================================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-quote-left" style="font-size:.68rem"></i> Testimonials</div>
+        <h2 class="sec-title">Trusted by <span class="grad-text">Healthcare Professionals</span></h2>
+        <p class="sec-sub">Hear from doctors and clinic teams already using PatientHub every day.</p>
+      </div>
+      <div class="testimonials-wrapper">
+        <div class="testimonial-avatars" id="testimonial-avatars"></div>
+        <div class="testimonial-card" id="testimonial-card"></div>
+        <div class="testimonial-controls">
+          <button class="t-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+          <button class="t-btn" id="next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Features -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            <div class="services-grid" id="services-grid">
-                <!-- Dynamic Content -->
+  <!-- Wave: white → light -->
+  <div class="wave" style="background:#ffffff">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C360,0 1080,60 1440,10 L1440,60 L0,60 Z" fill="#f0f5fb"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ FAQ ================================================================ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-question-circle" style="font-size:.68rem"></i> FAQ</div>
+        <h2 class="sec-title">Frequently Asked <span class="grad-text">Questions</span></h2>
+        <p class="sec-sub">Everything you need to know about PatientHub.</p>
+      </div>
+      <div class="faq-grid" id="faq-grid"></div>
+    </div>
+  </section>
+
+  <!-- Wave: light → white -->
+  <div class="wave" style="background:#f0f5fb">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,20 C360,60 1080,0 1440,35 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- ================================================================ CONTACT ================================================================ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <div class="chip"><i class="fas fa-envelope" style="font-size:.68rem"></i> Contact</div>
+        <h2 class="sec-title">Get In <span class="grad-text">Touch</span></h2>
+        <p class="sec-sub">Ready to modernize your clinic? We're here to help you get started.</p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-text">
+          <h3>Let's Talk</h3>
+          <p class="contact-desc">For any inquiries, please feel free to reach out. We're here to help you set up PatientHub for your clinic.</p>
+          <div class="contact-details">
+            <div class="info-item">
+              <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+              <div><h5>Location</h5><p>Beirut, Lebanon</p></div>
             </div>
+            <div class="info-item">
+              <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+              <div><h5>Email Us</h5><p>patienthub@googlegroups.com</p></div>
+            </div>
+            <div class="info-item">
+              <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+              <div><h5>Call Us</h5><p>+961 71 762 637</p></div>
+            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Our Services -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Our Features</h2>
-            <div class="features-list" id="features-list">
-                <!-- Dynamic Content -->
+        <div class="contact-form-card">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" placeholder="John Doe">
+                <span class="error-msg">This field is required</span>
+              </div>
+              <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="john@example.com">
+                <span class="error-msg">Valid email required</span>
+              </div>
             </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" placeholder="+961 03 000 000">
+                <span class="error-msg">This field is required</span>
+              </div>
+              <div class="form-group">
+                <label>Clinic / Company</label>
+                <input type="text" id="company" placeholder="Medical Center Name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message <span class="required">*</span></label>
+              <textarea rows="4" id="description" placeholder="Tell us about your clinic and what you need..."></textarea>
+              <span class="error-msg">This field is required</span>
+            </div>
+            <div class="form-action">
+              <button type="submit" class="btn btn-primary">
+                Send Message <i class="fas fa-paper-plane" style="margin-left:8px;font-size:.82rem"></i>
+              </button>
+            </div>
+          </form>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Testimonials -->
-    <!-- <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Customer Say?</h2>
-            <div class="testimonial-content">
-                <div class="avatars" id="testimonial-avatars">
-                </div>
-                <div class="testimonial-card-wrapper">
-                    <button class="nav-btn prev" id="prev-btn"><i class="fas fa-arrow-left"></i></button>
-                    <div class="testimonial-card" id="testimonial-card">
-                    </div>
-                    <button class="nav-btn next" id="next-btn"><i class="fas fa-arrow-right"></i></button>
-                </div>
-            </div>
+  <!-- ================================================================ FOOTER ================================================================ -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="images/PatientHub-logo-white.png" alt="PatientHub" style="height:38px;width:auto" loading="lazy" decoding="async">
+          <span class="footer-logo-name">PatientHub</span>
         </div>
-    </section> -->
-
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Pricing</h2>
-            <div class="pricing-grid" id="pricing-grid">
-                <!-- Dynamic Content -->
-            </div>
+        <p>Making healthcare management smarter, faster, and more human.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="license.html">License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/share/1Avv3xpaaw/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/patienthub/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-grid" id="faq-grid">
-                <!-- Dynamic Content -->
-            </div>
+        <div style="margin-top:20px">
+          <a href="#contact" class="btn btn-primary" style="height:40px;padding:0 20px;font-size:.85rem">Contact Us</a>
         </div>
-    </section>
-
-    <!-- Contact Us -->
-    <!-- Contact Us -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-wrapper">
-                <div class="contact-text">
-                    <h3>Get in Touch</h3>
-                    <p class="contact-desc">For any inquiries or questions, please feel free to contact us. We are here
-                        to
-                        assist you with any questions you may have.</p>
-
-                    <div class="contact-details">
-                        <div class="info-item">
-                            <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h5>Location</h5>
-                                <p>Beirut, Lebanon</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="icon-circle"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <h5>Email Us</h5>
-                                <p>support@chamaeleo.tech</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <h5>Call Us</h5>
-                                <p>+961 71 762 637</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-card">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Full Name <span class="required">*</span></label>
-                                <input type="text" id="fullName" placeholder="John Doe">
-                                <span class="error-msg">This field is required</span>
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address <span class="required">*</span></label>
-                                <input type="email" id="email" placeholder="john.doe@example.com">
-                                <span class="error-msg">This field is required</span>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Phone Number <span class="required">*</span></label>
-                                <input type="tel" id="phone" placeholder="+961 03 000 000">
-                                <span class="error-msg">This field is required</span>
-                            </div>
-                            <div class="form-group">
-                                <label>Company</label>
-                                <input type="text" id="company" placeholder="Medical Center Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Description <span class="required">*</span></label>
-                            <textarea rows="4" id="description"
-                                placeholder="Please describe your inquiry..."></textarea>
-                            <span class="error-msg">This field is required</span>
-                        </div>
-                        <div class="form-action">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright &copy; 2025 PatientHub by Chamaeleo Tech. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="license.html">License</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </footer>
 
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/96171762637" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-col">
-                <div class="logo">
-                    <img src="images/PatientHub-icon.svg" alt="PatientHub Logo"
-                        style="height: 40px; width: auto; margin-right: 10px;">
-                    <span style="color: #203C88; font-weight: 700; font-size: 16px;">Patient Hub</span>
-                </div>
-                <p>Making healthcare accessible and efficient for everyone.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="privacy.html">Privacy & Policy</a></li>
-                    <li><a href="license.html">License</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Follow us</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/share/1Avv3xpaaw/?mibextid=wwXIfr"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/patienthub/"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div style="margin-top: 20px;">
-                    <a href="#contact" class="btn btn-primary">Contact Us</a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>Copyright @ 2025 All Rights Reserved</p>
-        </div>
-    </footer>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/96171762637" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+  <script>
+    // Detect Instagram / Facebook in-app browser and strip heavy GPU effects
+    if (/Instagram|FBAN|FBAV|FB_IAB|FB4A|FBIOS/.test(navigator.userAgent)) {
+      document.documentElement.classList.add('inapp');
+    }
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    // Scrolled header
+    const hdr = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Mobile menu
+    const mobToggle = document.getElementById('mobToggle');
+    const mobNav    = document.getElementById('mobNav');
+    const mobIcon   = document.getElementById('mobIcon');
+    mobToggle.addEventListener('click', () => {
+      const open = mobNav.classList.toggle('open');
+      mobIcon.className = open ? 'fas fa-times' : 'fas fa-bars';
+    });
+    mobNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobNav.classList.remove('open');
+        mobIcon.className = 'fas fa-bars';
+      });
+    });
+  </script>
 </body>
-
 </html>

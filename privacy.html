@@ -2,244 +2,319 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PatientHub - Privacy & Policy</title>
-    <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatientHub – Privacy Policy</title>
+  <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="legal.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/PatientHub-icon.svg" alt="PatientHub Logo">
-                </a>
-            </div>
-            <nav class="desktop-nav">
-                <a href="index.html#about-us">About Us</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#pricing">Pricing</a>
-                <a href="index.html#faq">FAQ</a>
-            </nav>
-            <div class="header-buttons">
-                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
-                <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
-            </div>
-            <div class="mobile-menu-icon">
-                <i class="fas fa-bars"></i>
-            </div>
+  <!-- ================================================================ HEADER ================================================================ -->
+  <header id="mainHeader">
+    <div class="hdr">
+      <div class="logo">
+        <a href="index.html"><img src="images/PatientHub-icon.svg" alt="PatientHub"></a>
+        <a href="index.html"><span class="logo-name">PatientHub</span></a>
+      </div>
+      <nav class="desk-nav">
+        <a href="index.html#about-us">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="hdr-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
+        <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+      <div class="mob-icon" id="mobToggle"><i class="fas fa-bars" id="mobIcon"></i></div>
+    </div>
+    <div class="mob-nav" id="mobNav">
+      <a href="index.html#about-us">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+      <div class="mob-btns">
+        <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
+        <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================================================ HERO ================================================================ -->
+  <section class="legal-hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="hero-dots"></div>
+    <div class="med-icons" aria-hidden="true">
+      <i class="fas fa-shield-alt med-icon mi1"></i>
+      <i class="fas fa-lock med-icon mi2"></i>
+      <i class="fas fa-user-shield med-icon mi3"></i>
+      <i class="fas fa-fingerprint med-icon mi4"></i>
+      <i class="fas fa-eye-slash med-icon mi5"></i>
+      <i class="fas fa-key med-icon mi6"></i>
+    </div>
+    <div class="ecg-band" aria-hidden="true">
+      <svg class="ecg-svg" viewBox="0 0 2800 44" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <polyline points="0,22 100,22 118,5 136,39 154,5 172,39 190,22 280,22 298,10 316,34 334,10 352,34 370,22 460,22 478,5 496,39 514,5 532,39 550,22 640,22 658,10 676,34 694,10 712,34 730,22 820,22 838,5 856,39 874,5 892,39 910,22 1000,22 1018,10 1036,34 1054,10 1072,34 1090,22 1180,22 1198,5 1216,39 1234,5 1252,39 1270,22 1360,22 1378,10 1396,34 1414,10 1432,34 1450,22 1540,22 1558,5 1576,39 1594,5 1612,39 1630,22 1720,22 1738,10 1756,34 1774,10 1792,34 1810,22 1900,22 1918,5 1936,39 1954,5 1972,39 1990,22 2080,22 2098,10 2116,34 2134,10 2152,34 2170,22 2260,22 2278,5 2296,39 2314,5 2332,39 2350,22 2440,22 2458,10 2476,34 2494,10 2512,34 2530,22 2620,22 2638,5 2656,39 2674,5 2692,39 2710,22 2800,22"
+          stroke="rgba(38,123,190,0.75)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="legal-hero-content">
+      <a href="index.html" class="breadcrumb-link"><i class="fas fa-arrow-left"></i> Back to PatientHub</a>
+      <div class="legal-page-icon"><i class="fas fa-shield-alt"></i></div>
+      <h1>Privacy <span class="grad-text">Policy</span></h1>
+      <p class="legal-updated"><i class="fas fa-clock"></i> Last updated: April 2025</p>
+    </div>
+  </section>
+
+  <!-- ================================================================ CONTENT ================================================================ -->
+  <main class="legal-content">
+    <div class="container">
+      <div class="legal-main">
+
+        <div class="legal-intro">
+          <p>At PatientHub, we respect your privacy and are committed to protecting all personal, medical, and operational data handled through our platform. This Privacy Policy explains what data we collect, how we use it, and your rights regarding that data.</p>
         </div>
-        <!-- Mobile Nav Menu -->
-        <div class="mobile-nav">
-            <a href="index.html#about-us">About Us</a>
-            <a href="index.html#services">Services</a>
-            <a href="index.html#features">Features</a>
-            <a href="index.html#pricing">Pricing</a>
-            <a href="index.html#faq">FAQ</a>
-            <div class="mobile-buttons">
-                <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
-                <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
-            </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">01</span> Information We Collect</h2>
+          <p>We collect the following categories of information when you or your clinic use PatientHub:</p>
+          <ul>
+            <li><strong>Account information:</strong> Name, email address, phone number, role (doctor, secretary, administrator), and login credentials.</li>
+            <li><strong>Clinic information:</strong> Clinic name, address, phone number, working hours, specialities, and logo.</li>
+            <li><strong>Patient records:</strong> Patient name, date of birth, contact details, medical history, diagnoses, prescriptions, dental chart records, and any data entered by authorized clinic staff.</li>
+            <li><strong>Appointment data:</strong> Scheduled dates, times, clinic location, appointment type, status, and session notes.</li>
+            <li><strong>Billing and financial data:</strong> Invoice details, payment status, amounts, expense records, and clinic revenue information.</li>
+            <li><strong>Form submissions:</strong> Patient responses to custom intake forms, medical questionnaires, and pre-visit reports created by the clinic.</li>
+            <li><strong>Prescription data:</strong> Digital prescription records including medications, dosage, frequency, and prescribing doctor.</li>
+            <li><strong>Dental chart data:</strong> Per-tooth treatment records, clinical notes, and treatment catalog entries.</li>
+            <li><strong>WhatsApp contact data:</strong> Patient phone numbers used to send appointment reminders and notifications via the WhatsApp Business integration.</li>
+            <li><strong>Google Calendar tokens:</strong> OAuth access tokens used to sync appointments with Google Calendar on behalf of authorized users. These are stored securely and used solely for calendar sync purposes.</li>
+            <li><strong>Activity logs:</strong> Records of user actions within the platform (logins, record edits, permission changes) for audit and security purposes.</li>
+            <li><strong>Technical data:</strong> IP address, browser type, device type, operating system, and session identifiers collected automatically when you use the platform.</li>
+          </ul>
         </div>
-    </header>
 
-    <!-- Terms Hero Section -->
-    <section class="legal-hero">
-        <div class="heartbeat-background">
-            <div class="hb-track">
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-                <div class="hb-slice"></div>
-                <div class="hb-slice flipped"></div>
-            </div>
+        <div class="legal-item">
+          <h2><span class="section-badge">02</span> How We Use Your Information</h2>
+          <p>We use the collected information to:</p>
+          <ul>
+            <li>Provide, operate, and improve the PatientHub platform and all its features.</li>
+            <li>Manage appointments, patient records, billing, prescriptions, and dental charts on behalf of clinics.</li>
+            <li>Send appointment reminders and notifications to patients via WhatsApp, where enabled by the clinic.</li>
+            <li>Sync appointment data with Google Calendar when authorized by the user.</li>
+            <li>Enforce role-based access controls to ensure each user sees only the data they are authorized to access.</li>
+            <li>Maintain audit logs for security, compliance, and accountability.</li>
+            <li>Communicate important system updates, maintenance notices, and support responses.</li>
+            <li>Analyze aggregated usage data to improve platform performance and user experience.</li>
+            <li>Prevent unauthorized access, fraud, and misuse of the platform.</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Terms Content -->
-    <section class="legal-content">
-        <div class="container">
-            <div class="legal-sections">
-                <h1 class="legal-title">Privacy & Policy</h1>
-                <p class="legal-subtitle">Welcome to Patient Hub.</p>
-                <p class="legal-desc">At PatientHub, we respect your privacy and are committed to protecting your
-                    personal and medical information.</p>
-
-                <div class="legal-item">
-                    <h2>1. Information We Collect</h2>
-                    <p>We may collect the following information:</p>
-                    <ul>
-                        <li>Personal details (name, email, phone number)</li>
-                        <li>Clinic or doctor information</li>
-                        <li>Patient data entered by doctors or clinics</li>
-                        <li>Appointment and scheduling data</li>
-                        <li>Technical data (device, browser, IP address)</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>2. How We Use Information</h2>
-                    <p>We use the collected information to:</p>
-                    <ul>
-                        <li>Provide and improve our services</li>
-                        <li>Manage appointments and patient records</li>
-                        <li>Ensure secure access to the system</li>
-                        <li>Communicate important updates</li>
-                        <li>Improve system performance and user experience</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>3. Patient Data & Medical Information</h2>
-                    <ul>
-                        <li>Patient data is entered and managed by doctors or clinics.</li>
-                        <li>PatientHub does not own patient medical records.</li>
-                        <li>All medical data is treated as confidential and accessed only by authorized users.</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>4. Data Security</h2>
-                    <p>We take security seriously and use:</p>
-                    <ul>
-                        <li>Secure servers and encrypted connections</li>
-                        <li>Access controls and authentication</li>
-                        <li>Regular system monitoring</li>
-                    </ul>
-                    <p>However, no system is 100% secure, and we continuously work to improve protection.</p>
-                </div>
-
-                <div class="legal-item">
-                    <h2>5. Data Sharing</h2>
-                    <p>We do not sell or share your data with third parties, except:</p>
-                    <ul>
-                        <li>When required by law</li>
-                        <li>To protect PatientHub’s legal rights</li>
-                        <li>With trusted service providers who support system operations (under strict confidentiality)
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>6. User Responsibilities</h2>
-                    <p>Doctors and clinics are responsible for:</p>
-                    <ul>
-                        <li>Keeping login credentials secure</li>
-                        <li>Using the system in compliance with local healthcare laws</li>
-                        <li>Ensuring patient consent where required</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>7. Cookies</h2>
-                    <p>PatientHub may use cookies to:</p>
-                    <ul>
-                        <li>Improve user experience</li>
-                        <li>Analyze system usage</li>
-                        <li>Maintain secure sessions</li>
-                    </ul>
-                    <p>You can disable cookies through your browser settings.</p>
-                </div>
-
-                <div class="legal-item">
-                    <h2>8. Your Rights</h2>
-                    <p>You have the right to:</p>
-                    <ul>
-                        <li>Access your personal data</li>
-                        <li>Request correction or deletion</li>
-                        <li>Request information about how your data is used</li>
-                    </ul>
-                </div>
-
-                <div class="legal-item">
-                    <h2>9. Changes to This Policy</h2>
-                    <p>We may update this Privacy Policy from time to time.</p>
-                    <p>Any changes will be posted on this page.</p>
-                </div>
-
-                <div class="legal-item contacts-section">
-                    <h2>10. Contact Us</h2>
-                    <p>If you have questions about this Privacy Policy, contact us at:</p>
-                    <ul class="contact-list">
-                        <li><span>By email:</span> <a href="mailto:support@chamaeleo.tech">support@chamaeleo.tech</a>
-                        </li>
-                        <li><span>By visiting this page on our website:</span> <a
-                                href="https://patienthub.net">https://patienthub.net</a></li>
-                        <li><span>By phone number:</span> <a href="tel:+96171762637">+961 71 762637</a></li>
-                        <li><span>Address:</span> Lebanon, Beirut</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="legal-item">
+          <h2><span class="section-badge">03</span> Patient Data &amp; Medical Records</h2>
+          <ul>
+            <li>Patient data (including medical records, prescriptions, dental charts, and form submissions) is entered and managed exclusively by authorized clinic staff.</li>
+            <li>PatientHub does not own, interpret, or act upon patient medical records. We are a data processor — the clinic is the data controller.</li>
+            <li>All medical data is treated as strictly confidential and is accessible only to users with the appropriate permissions within the clinic.</li>
+            <li>Dental chart records, prescription data, and medical form responses are stored securely and tied to individual patient profiles within the platform.</li>
+            <li>Clinics are responsible for obtaining patient consent where required by applicable law before entering patient data into the system.</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-col">
-                <div class="logo">
-                    <img src="images/PatientHub-icon.svg" alt="PatientHub Logo"
-                        style="height: 40px; width: auto; margin-right: 10px;">
-                    <span style="color: #203C88; font-weight: 700; font-size: 16px;">Patient Hub</span>
-                </div>
-                <p>Making healthcare accessible and efficient for everyone.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="index.html#about-us">About Us</a></li>
-                    <li><a href="index.html#features">Features</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="privacy.html">Privacy & Policy</a></li>
-                    <li><a href="license.html">License</a></li>
-                </ul>
-            </div>
-            <div class="footer-col" style="align-items: flex-start; display: flex; flex-direction: column;">
-                <h4 style="align-self: flex-start;">Follow us</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/share/1Avv3xpaaw/?mibextid=wwXIfr"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/patienthub/"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div style="margin-top: 20px;">
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
-                </div>
-            </div>
+        <div class="legal-item">
+          <h2><span class="section-badge">04</span> WhatsApp Integration</h2>
+          <ul>
+            <li>PatientHub integrates with the WhatsApp Business API to send appointment reminders, confirmations, and other clinic notifications to patients.</li>
+            <li>Patient phone numbers are used solely for the purpose of sending messages authorized by the clinic.</li>
+            <li>We do not use WhatsApp contact data for marketing, advertising, or any purpose beyond clinic-authorized messaging.</li>
+            <li>Clinics are responsible for ensuring patient consent for receiving WhatsApp messages in compliance with applicable local laws.</li>
+            <li>WhatsApp message logs may be stored for audit and troubleshooting purposes.</li>
+          </ul>
         </div>
-        <div class="copyright">
-            <p>Copyright @ 2025 All Rights Reserved</p>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">05</span> Google Calendar Integration</h2>
+          <ul>
+            <li>PatientHub supports optional Google Calendar synchronization for doctors and staff.</li>
+            <li>When you authorize Google Calendar sync, we receive and store OAuth tokens on your behalf to access and update your calendar.</li>
+            <li>These tokens are stored securely and used only to create, update, or delete appointment events in your Google Calendar.</li>
+            <li>We do not read, store, or share any other content from your Google account beyond appointment events created by PatientHub.</li>
+            <li>You can revoke Google Calendar access at any time through your Google account settings or through the PatientHub configuration panel.</li>
+          </ul>
         </div>
-    </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/96171762637" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <div class="legal-item">
+          <h2><span class="section-badge">06</span> Data Security</h2>
+          <p>We take data security seriously and implement the following measures:</p>
+          <ul>
+            <li>Encrypted connections (HTTPS/TLS) for all data transmission.</li>
+            <li>JWT-based authentication with short-lived access tokens and secure refresh token rotation.</li>
+            <li>Role-based access controls (RBAC) to limit data access by user role and permission.</li>
+            <li>Secure password hashing using industry-standard algorithms.</li>
+            <li>Activity audit logs to track all significant user actions within the platform.</li>
+            <li>Regular system monitoring and vulnerability assessments.</li>
+          </ul>
+          <p>No system can guarantee 100% security. We continuously work to improve our protections and respond promptly to any security incidents.</p>
+        </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+        <div class="legal-item">
+          <h2><span class="section-badge">07</span> Data Sharing</h2>
+          <p>We do not sell your data. We do not share patient or clinic data with third parties, except:</p>
+          <ul>
+            <li>When required by law, court order, or regulatory authority.</li>
+            <li>To protect the legal rights or safety of PatientHub, its users, or the public.</li>
+            <li>With trusted service providers who support platform operations (e.g., cloud hosting, email delivery, WhatsApp messaging), under strict confidentiality and data processing agreements.</li>
+            <li>With the clinic administrator who manages your account, consistent with the role-based access structure of the platform.</li>
+          </ul>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">08</span> User Responsibilities</h2>
+          <p>Doctors, clinic administrators, and all authorized staff are responsible for:</p>
+          <ul>
+            <li>Keeping their login credentials confidential and not sharing them with unauthorized persons.</li>
+            <li>Using the platform in compliance with applicable local healthcare privacy laws and regulations (e.g., Lebanese medical data regulations).</li>
+            <li>Obtaining patient consent before entering patient data, sending WhatsApp messages, or enabling any integrations on behalf of patients.</li>
+            <li>Promptly reporting any suspected unauthorized access or data breach to PatientHub support.</li>
+          </ul>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">09</span> Cookies &amp; Session Data</h2>
+          <p>PatientHub uses cookies and local storage to:</p>
+          <ul>
+            <li>Maintain secure authenticated sessions (JWT tokens stored in browser storage).</li>
+            <li>Remember user preferences (e.g., theme, language, selected clinic).</li>
+            <li>Analyze platform usage to improve performance and user experience.</li>
+          </ul>
+          <p>You can clear cookies and local storage through your browser settings, which will log you out of the platform. Some features may not function correctly if storage is disabled.</p>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">10</span> Data Retention</h2>
+          <ul>
+            <li>Account and clinic data is retained for as long as your subscription is active.</li>
+            <li>Patient records, billing data, and medical information are retained as configured by the clinic and in accordance with applicable healthcare record-keeping obligations.</li>
+            <li>Activity logs are retained for a defined period for security and audit purposes.</li>
+            <li>Upon account termination, data may be retained for a limited period as required by law before permanent deletion.</li>
+          </ul>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">11</span> Your Rights</h2>
+          <p>You have the right to:</p>
+          <ul>
+            <li>Access the personal data we hold about you or your clinic.</li>
+            <li>Request correction of inaccurate or incomplete data.</li>
+            <li>Request deletion of your account and associated data, subject to legal retention obligations.</li>
+            <li>Revoke third-party integration access (e.g., Google Calendar) at any time.</li>
+            <li>Request information about how your data is processed and shared.</li>
+          </ul>
+          <p>To exercise any of these rights, contact us at <a href="mailto:support@chamaeleo.tech">support@chamaeleo.tech</a>.</p>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">12</span> Children's Privacy</h2>
+          <p>PatientHub is designed for use by licensed healthcare providers and clinic staff. It is not intended for direct use by individuals under 18. Patient records for minors may be entered by authorized clinic staff on behalf of the patient's guardian.</p>
+        </div>
+
+        <div class="legal-item">
+          <h2><span class="section-badge">13</span> Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our platform, integrations, or applicable law. Any significant changes will be communicated to registered users via email or an in-app notice. The updated policy will always be available on this page.</p>
+        </div>
+
+        <div class="legal-item contacts-section">
+          <h2><span class="section-badge" style="background:rgba(255,255,255,.25);color:#fff">14</span> Contact Us</h2>
+          <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+          <ul class="contact-list">
+            <li><span>By email:</span> <a href="mailto:support@chamaeleo.tech">support@chamaeleo.tech</a></li>
+            <li><span>By website:</span> <a href="https://patienthub.net">https://patienthub.net</a></li>
+            <li><span>By phone:</span> <a href="tel:+96171762637">+961 71 762 637</a></li>
+            <li><span>Address:</span> Beirut, Lebanon</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================================================================ FOOTER ================================================================ -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="images/PatientHub-logo-white.png" alt="PatientHub" style="height:38px;width:auto">
+          <span class="footer-logo-name">PatientHub</span>
+        </div>
+        <p>Making healthcare management smarter, faster, and more human.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html#about-us">About Us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="license.html">License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/share/1Avv3xpaaw/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/patienthub/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div style="margin-top:20px">
+          <a href="index.html#contact" class="btn btn-primary" style="height:40px;padding:0 20px;font-size:.85rem">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        <p>Copyright &copy; 2025 PatientHub by Chamaeleo Tech. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="license.html">License</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/96171762637" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const hdr = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+    const mobToggle = document.getElementById('mobToggle');
+    const mobNav    = document.getElementById('mobNav');
+    const mobIcon   = document.getElementById('mobIcon');
+    mobToggle.addEventListener('click', () => {
+      const open = mobNav.classList.toggle('open');
+      mobIcon.className = open ? 'fas fa-times' : 'fas fa-bars';
+    });
+    mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobNav.classList.remove('open');
+      mobIcon.className = 'fas fa-bars';
+    }));
+  </script>
 </body>
-
 </html>

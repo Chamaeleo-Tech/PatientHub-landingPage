@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Render Content from data.js ---
 
     // 1. Stats
-    // 1. Stats
     const statsContainer = document.getElementById('stats-container');
     if (statsContainer) {
         data.stats.forEach((item, index) => {
@@ -19,33 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
             statsContainer.appendChild(statDiv);
         });
 
-        // Animate numbers
+        // Animate numbers only when the stats bar scrolls into view
         const statNumbers = document.querySelectorAll('.stat-number');
-        statNumbers.forEach(stat => {
-            const target = +stat.getAttribute('data-target');
-            const suffix = stat.getAttribute('data-suffix');
-            const duration = 2000; // Animation duration in ms
-            const start = 0;
-            const startTime = performance.now();
+        let statsAnimated = false;
 
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
+        function animateStats() {
+            if (statsAnimated) return;
+            statsAnimated = true;
+            statNumbers.forEach(stat => {
+                const target = +stat.getAttribute('data-target');
+                const suffix = stat.getAttribute('data-suffix');
+                const duration = 2000;
+                const startTime = performance.now();
 
-                // Ease-out effect
-                const ease = 1 - Math.pow(1 - progress, 3);
-
-                const current = Math.floor(ease * (target - start) + start);
-                stat.innerHTML = `${current}${suffix}`;
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    stat.innerHTML = `${target}${suffix}`;
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = 1 - Math.pow(1 - progress, 3);
+                    stat.innerHTML = `${Math.floor(ease * target)}${suffix}`;
+                    if (progress < 1) requestAnimationFrame(update);
+                    else stat.innerHTML = `${target}${suffix}`;
                 }
-            }
-            requestAnimationFrame(update);
-        });
+                requestAnimationFrame(update);
+            });
+        }
+
+        const statsBar = document.querySelector('.stats-bar');
+        if (statsBar) {
+            const statsObserver = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    animateStats();
+                    statsObserver.disconnect();
+                }
+            }, { threshold: 0.2 });
+            statsObserver.observe(statsBar);
+        }
     }
 
     // 2. Mission & Vision
@@ -71,9 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = `service-card ${service.styleClass} reveal delay-${(index % 3) * 200}`;
             let ribbonHtml = service.isComingSoon ? '<div class="ribbon"><span>Coming Soon</span></div>' : '';
+            const iconHtml = service.faIcon
+                ? `<div class="icon"><i class="${service.faIcon}" style="font-size:1.6rem;"></i></div>`
+                : `<div class="icon"><img src="${service.icon}" alt="${service.title}"></div>`;
             card.innerHTML = `
                 ${ribbonHtml}
-                <div class="icon"><img src="${service.icon}" alt="${service.title}"></div>
+                ${iconHtml}
                 <div>${service.title}</div>
                 <p>${service.description}</p>
             `;
@@ -162,14 +172,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update on resize
-    window.addEventListener('resize', renderTestimonials);
+    // Update on resize (debounced to avoid excessive DOM rebuilds)
+    let _resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(_resizeTimer);
+        _resizeTimer = setTimeout(renderTestimonials, 200);
+    }, { passive: true });
 
     // Initial Render
     renderTestimonials();
 
 
-    // 6. Pricing
     // 6. Pricing
     const pricingGrid = document.getElementById('pricing-grid');
     if (pricingGrid) {
@@ -247,54 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
         attachFaqListeners();
     }
 
-    // --- Interaction Logic (Mobile Menu, Sticky Header, etc.) ---
-
-    // Mobile Menu Toggle
-    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    if (mobileMenuIcon && mobileNav) {
-        mobileMenuIcon.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-            const icon = mobileMenuIcon.querySelector('i');
-            if (mobileNav.classList.contains('active')) {
-                icon.className = 'fas fa-times'; // Switch to X
-            } else {
-                icon.className = 'fas fa-bars'; // Switch back to bars
-            }
-        });
-    }
-
-    // Active Link Highlighting
-    const desktopLinks = document.querySelectorAll('.desktop-nav a');
-    desktopLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            desktopLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    // Close mobile menu when link clicked
-    const mobileLinks = document.querySelectorAll('.mobile-nav a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            const icon = mobileMenuIcon.querySelector('i');
-            if (icon) icon.className = 'fas fa-bars';
-        });
-    });
-
-    // Sticky Header
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = "0 4px 15px rgba(0,0,0,0.1)";
-        } else {
-            header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)";
-        }
-    });
-
-    // FAQ Interaction Logic (Function to attach listeners)
     // FAQ Interaction Logic (Function to attach listeners)
     function attachFaqListeners() {
         const faqItems = document.querySelectorAll('.faq-item');
@@ -344,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isValid) {
                 const subject = `New Contact Message from ${fullName.value}`;
                 const body = `Name: ${fullName.value}\nEmail: ${email.value}\nPhone: ${phone.value}\nCompany: ${company.value}\n\nDescription:\n${description.value}`;
-                window.location.href = `mailto:support@chamaeleo.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = `mailto:patienthub@googlegroups.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             }
         });
     }

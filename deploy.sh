@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-DEST_HOST="landing-pages"
+DEST_HOST="patienthub-landing"
 DEST_PATH="/home/baker"
 ZIP_FILE="deploy_package.zip"
 
