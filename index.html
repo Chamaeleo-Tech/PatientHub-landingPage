@@ -16,7 +16,10 @@
   <meta name="twitter:title" content="PatientHub">
   <meta name="twitter:description" content="The all-in-one clinic management platform for appointments, billing, dental charts, WhatsApp, prescriptions, and more.">
   <link rel="icon" href="images/PatientHub-icon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script type="application/ld+json">
   {
@@ -54,7 +57,8 @@
     /* ============================================================ RESET & BASE ============================================================ */
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:hidden}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeSpeed}
+    a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     a{text-decoration:none;color:inherit;transition:all .3s var(--ease)}
     ul{list-style:none}
     img{max-width:100%;display:block}
@@ -67,7 +71,7 @@
       -webkit-text-fill-color:transparent;
       background-clip:text;
       background-size:200%;
-      animation:gradShift 4s ease infinite;
+      animation:gradShift 8s ease infinite;
     }
     @keyframes gradShift{
       0%{background-position:0% center}
@@ -145,7 +149,7 @@
     .mob-icon{display:none;font-size:1.3rem;cursor:pointer;color:var(--text);padding:6px}
     .mob-nav{
       display:none;position:absolute;top:calc(100% + 12px);left:0;right:0;
-      background:rgba(255,255,255,.98);backdrop-filter:blur(24px);
+      background:rgba(255,255,255,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
       border:1px solid rgba(38,123,190,.12);border-radius:16px;
       padding:20px;flex-direction:column;gap:4px;
     }
@@ -180,6 +184,7 @@
       position:absolute;inset:0;z-index:0;pointer-events:none;
       background-image:radial-gradient(circle,rgba(38,123,190,.14) 1.5px,transparent 1.5px);
       background-size:34px 34px;
+      -webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 90%);
       mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 90%);
     }
 
@@ -325,7 +330,9 @@
       background:var(--bg2);padding:52px 0;
       border-top:3px solid transparent;
       background-image:linear-gradient(var(--bg2),var(--bg2)),var(--grad);
-      background-origin:border-box;background-clip:padding-box,border-box;
+      background-origin:border-box;
+      -webkit-background-clip:padding-box,border-box;
+      background-clip:padding-box,border-box;
       box-shadow:0 4px 30px rgba(38,123,190,.07);
     }
     .stats-container{display:flex;justify-content:space-around;align-items:center;text-align:center}
@@ -804,6 +811,34 @@
       .hero-btns .btn{width:100%;max-width:300px}
       .sec-title{font-size:1.85rem}
     }
+
+    /* ============================================================ GPU COMPOSITING HINTS ============================================================ */
+    .blob,.ticker-track,.ecg-svg{will-change:transform}
+
+    /* ============================================================ REDUCED MOTION (accessibility + low-power) ============================================================ */
+    @media(prefers-reduced-motion:reduce){
+      .blob,.med-icon,.fcard,.ecg-svg,.ticker-track,
+      .hero::before,.badge-dot,.grad-text,.btn-primary,
+      .scroll-line,.ring,.mission-vision::before{animation:none!important}
+    }
+
+    /* ============================================================ IN-APP BROWSER (Instagram/Facebook) ============================================================ */
+    /* Detected via JS: adds .inapp to <html>. Strips expensive GPU effects. */
+    html.inapp .blob{animation:none!important}
+    html.inapp .med-icons{display:none!important}
+    html.inapp .ecg-band{display:none!important}
+    html.inapp .scroll-cue{display:none!important}
+    html.inapp .float-cards{display:none!important}
+    html.inapp .ring{animation:none!important}
+    html.inapp .mission-vision::before{animation:none!important}
+    html.inapp .grad-text{animation:none!important;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+    html.inapp .badge-dot{animation:none!important}
+    html.inapp .btn-primary{animation:none!important}
+    html.inapp .hero::before{animation:none!important}
+    html.inapp .ticker-track{animation-duration:50s}
+    /* Replace costly backdrop-filter with solid backgrounds */
+    html.inapp header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(255,255,255,.97)!important}
+    html.inapp .mob-nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
   </style>
 </head>
 
@@ -813,7 +848,7 @@
   <header id="mainHeader">
     <div class="hdr">
       <a href="#home" class="logo">
-        <img src="images/PatientHub-icon.svg" alt="PatientHub">
+        <img src="images/PatientHub-icon.svg" alt="PatientHub" decoding="async">
         <span class="logo-name">PatientHub</span>
       </a>
       <nav class="desk-nav">
@@ -1162,7 +1197,7 @@
     <div class="container footer-container">
       <div class="footer-col">
         <div style="display:flex;align-items:center;gap:10px">
-          <img src="images/PatientHub-logo-white.png" alt="PatientHub" style="height:38px;width:auto">
+          <img src="images/PatientHub-logo-white.png" alt="PatientHub" style="height:38px;width:auto" loading="lazy" decoding="async">
           <span class="footer-logo-name">PatientHub</span>
         </div>
         <p>Making healthcare management smarter, faster, and more human.</p>
@@ -1218,6 +1253,11 @@
   <script src="script.js"></script>
 
   <script>
+    // Detect Instagram / Facebook in-app browser and strip heavy GPU effects
+    if (/Instagram|FBAN|FBAV|FB_IAB|FB4A|FBIOS/.test(navigator.userAgent)) {
+      document.documentElement.classList.add('inapp');
+    }
+
     // Scrolled header
     const hdr = document.getElementById('mainHeader');
     window.addEventListener('scroll', () => {

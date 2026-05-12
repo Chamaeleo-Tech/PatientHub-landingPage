@@ -18,33 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
             statsContainer.appendChild(statDiv);
         });
 
-        // Animate numbers
+        // Animate numbers only when the stats bar scrolls into view
         const statNumbers = document.querySelectorAll('.stat-number');
-        statNumbers.forEach(stat => {
-            const target = +stat.getAttribute('data-target');
-            const suffix = stat.getAttribute('data-suffix');
-            const duration = 2000; // Animation duration in ms
-            const start = 0;
-            const startTime = performance.now();
+        let statsAnimated = false;
 
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
+        function animateStats() {
+            if (statsAnimated) return;
+            statsAnimated = true;
+            statNumbers.forEach(stat => {
+                const target = +stat.getAttribute('data-target');
+                const suffix = stat.getAttribute('data-suffix');
+                const duration = 2000;
+                const startTime = performance.now();
 
-                // Ease-out effect
-                const ease = 1 - Math.pow(1 - progress, 3);
-
-                const current = Math.floor(ease * (target - start) + start);
-                stat.innerHTML = `${current}${suffix}`;
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    stat.innerHTML = `${target}${suffix}`;
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = 1 - Math.pow(1 - progress, 3);
+                    stat.innerHTML = `${Math.floor(ease * target)}${suffix}`;
+                    if (progress < 1) requestAnimationFrame(update);
+                    else stat.innerHTML = `${target}${suffix}`;
                 }
-            }
-            requestAnimationFrame(update);
-        });
+                requestAnimationFrame(update);
+            });
+        }
+
+        const statsBar = document.querySelector('.stats-bar');
+        if (statsBar) {
+            const statsObserver = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    animateStats();
+                    statsObserver.disconnect();
+                }
+            }, { threshold: 0.2 });
+            statsObserver.observe(statsBar);
+        }
     }
 
     // 2. Mission & Vision
@@ -164,8 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update on resize
-    window.addEventListener('resize', renderTestimonials);
+    // Update on resize (debounced to avoid excessive DOM rebuilds)
+    let _resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(_resizeTimer);
+        _resizeTimer = setTimeout(renderTestimonials, 200);
+    }, { passive: true });
 
     // Initial Render
     renderTestimonials();
