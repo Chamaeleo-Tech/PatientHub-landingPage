@@ -203,16 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnClass = 'btn-primary'; // Solid blue for popular
             }
 
-            // Wrap Price USD
-            const priceHtml = `${plan.price} <span class="month">/month</span>`;
-
             card.innerHTML = `
                 ${badgeHtml}
                 <h3>${plan.name}</h3>
-                <div class="price">${priceHtml}</div>
+                <div class="plan-tagline">${plan.tagline}</div>
                 <p class="card-desc">${plan.desc}</p>
                 ${featuresHtml}
-                <a href="https://wa.me/96171762637" target="_blank" class="btn ${btnClass} btn-block">Start 14 Days Free Trial</a>
+                <a href="https://wa.me/96171762637" target="_blank" class="btn ${btnClass} btn-block"><i class="fab fa-whatsapp"></i>&nbsp; Contact Us for Pricing</a>
             `;
             pricingGrid.appendChild(card);
         });
