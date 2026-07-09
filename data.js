@@ -154,8 +154,7 @@ const data = {
     pricing: [
         {
             name: "Basic Plan",
-            price: "$25",
-            currency: "USD",
+            tagline: "For solo practitioners",
             desc: "One staff user · Unlimited patients · Core clinic tools",
             features: [
                 "Appointment management",
@@ -169,8 +168,7 @@ const data = {
         },
         {
             name: "Professional",
-            price: "$50",
-            currency: "USD",
+            tagline: "For growing practices",
             desc: "Two staff users · Billing · Forms & Workflows · WhatsApp",
             isPopular: true,
             features: [
@@ -185,9 +183,8 @@ const data = {
         },
         {
             name: "Clinical",
-            price: "$85",
-            currency: "USD",
-            desc: "Five staff users · Multi-clinic · Dental chart · Full access · $15/extra user",
+            tagline: "For clinics & teams",
+            desc: "Five staff users · Multi-clinic · Dental chart · Full access",
             features: [
                 "Everything in Professional",
                 "Multi-clinic management",

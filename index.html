@@ -525,13 +525,12 @@
     }
     .popular-badge i{color:#fbbf24}
     .pricing-card h3{font-family:'Urbanist',sans-serif;font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:8px}
-    .pricing-card .price{
-      font-family:'Urbanist',sans-serif;font-size:2.9rem;font-weight:900;
-      background:var(--grad);-webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;background-clip:text;
-      line-height:1;margin-bottom:6px;display:flex;align-items:baseline;gap:4px;
+    .plan-tagline{
+      display:inline-flex;align-self:flex-start;align-items:center;
+      background:rgba(38,123,190,.08);color:var(--primary);
+      font-size:.78rem;font-weight:700;letter-spacing:.02em;
+      padding:6px 14px;border-radius:50px;margin-bottom:14px;
     }
-    .pricing-card .price span.month{font-size:.88rem;font-weight:500;color:var(--muted);-webkit-text-fill-color:var(--muted)}
     .card-desc{font-size:.8rem;color:var(--muted);margin-bottom:22px;line-height:1.5}
     .pricing-card ul{flex:1;margin-bottom:26px}
     .pricing-card ul li{
@@ -544,6 +543,39 @@
     .pricing-card .btn{width:100%;border-radius:14px;height:48px;font-size:.9rem}
     .pricing-card .btn-outline{border-color:rgba(38,123,190,.35);color:var(--primary)}
     .pricing-card .btn-outline:hover{border-color:var(--primary);background:var(--primary);color:#fff}
+    /* Contact-for-pricing CTA banner */
+    .pricing-cta{
+      margin-top:64px;position:relative;overflow:hidden;
+      background:var(--grad);border-radius:var(--radius);
+      padding:52px 40px;text-align:center;color:#fff;
+      box-shadow:0 24px 60px rgba(35,44,112,.28);
+    }
+    .pricing-cta-glow{
+      position:absolute;top:-120px;right:-120px;width:340px;height:340px;
+      background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);
+      border-radius:50%;pointer-events:none;animation:pulseRing 5s ease-in-out infinite;
+    }
+    .pricing-cta h3{
+      font-family:'Urbanist',sans-serif;font-size:1.7rem;font-weight:800;
+      margin-bottom:12px;position:relative;
+    }
+    .pricing-cta h3 em{font-style:italic;color:#9fd0f5}
+    .pricing-cta p{
+      font-size:.95rem;color:rgba(255,255,255,.85);max-width:520px;
+      margin:0 auto 28px;line-height:1.6;position:relative;
+    }
+    .pricing-cta-actions{
+      display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;
+    }
+    .btn-white{
+      background:#fff;color:var(--primary);border:none;
+      box-shadow:0 8px 24px rgba(0,0,0,.18);
+    }
+    .btn-white:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.24);color:var(--secondary,#232C70)}
+    .btn-ghost{
+      background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55);
+    }
+    .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-3px)}
 
     /* ============================================================ TESTIMONIALS ============================================================ */
     .testimonials{padding:100px 0;background:var(--bg2);position:relative;overflow:hidden}
@@ -792,6 +824,9 @@
       .feature-content{grid-template-columns:1fr;gap:5px}
       .feature-number{font-size:1.8rem;min-width:auto}
       .pricing-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+      .pricing-cta{padding:40px 22px;margin-top:48px}
+      .pricing-cta h3{font-size:1.35rem}
+      .pricing-cta-actions .btn{width:100%;max-width:320px}
       .faq-grid{flex-direction:column}
       footer{margin:0 10px 10px;border-radius:16px}
       .footer-container{grid-template-columns:1fr;text-align:center}
@@ -855,7 +890,7 @@
         <a href="#about-us">About</a>
         <a href="#services">Services</a>
         <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#pricing">Plans</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="hdr-btns">
@@ -870,7 +905,7 @@
       <a href="#about-us">About</a>
       <a href="#services">Services</a>
       <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#pricing">Plans</a>
       <a href="#faq">FAQ</a>
       <div class="mob-btns">
         <a href="https://dashboard.patienthub.net/" class="btn btn-outline">Login</a>
@@ -1064,11 +1099,20 @@
     <div class="ring ring-3"></div>
     <div class="container">
       <div class="sec-head">
-        <div class="chip"><i class="fas fa-tag" style="font-size:.68rem"></i> Pricing</div>
-        <h2 class="sec-title">Simple, <span class="grad-text">Transparent</span> Pricing</h2>
-        <p class="sec-sub">Start with a 14-day free trial. No credit card required.</p>
+        <div class="chip"><i class="fas fa-layer-group" style="font-size:.68rem"></i> Plans</div>
+        <h2 class="sec-title">A Plan That <span class="grad-text">Fits Your Clinic</span></h2>
+        <p class="sec-sub">Every clinic is different — so is our pricing. Pick your plan and get a personalized quote in minutes.</p>
       </div>
       <div class="pricing-grid" id="pricing-grid"></div>
+      <div class="pricing-cta reveal">
+        <div class="pricing-cta-glow"></div>
+        <h3>Curious what PatientHub costs for <em>your</em> clinic?</h3>
+        <p>Tell us about your practice and we'll tailor a plan and price just for you — plus a <strong>14-day free trial</strong>, no credit card required.</p>
+        <div class="pricing-cta-actions">
+          <a href="https://wa.me/96171762637" target="_blank" class="btn btn-white"><i class="fab fa-whatsapp"></i>&nbsp; Get Your Quote on WhatsApp</a>
+          <a href="#contact" class="btn btn-ghost">Send Us a Message</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1208,7 +1252,7 @@
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#pricing">Plans</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
